@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <table width="100%">
+            <!--Adding the business logo and name-->
+            <tr>
+                <td align="left">
+                    <img src="../Assets/Images/Mahogany Hair Salon.png" alt="Mahogany Hair Salon" width="95">
+                    <strong>Mahogany Hair Salon</strong>
+
+                </td>
+                <td align="right">
+                    <!--Adding navication links to enquiry page-->
+                    <a href="../index.html">HOME</a>
+                    <a href="./service.html">SERVICE</a>
+                    <a href="./products.html">PRODUCTS</a>
+                    <a href="./about_us.html">ABOUT US</a>
+                    <a href="./contact_us.html">CONTACT US</a>
+                    <a href="./enquiry.html">ENQUIRY</a>
+
+                </td>
+            </tr>
+        </table>
+       
+    </header>
+<main>
+    <!--Enquiry form section-->
+    <section align="center">
+        <h1>Send us your enquiries</h1>
+        <p align="left">Enter your details and queary below:</p>
+    </section>
+    <section align="center">
+
+        <form action="#" method="post">
+
+        <table>
+            <!--Section for entering details-->
+            <tr>
+                <td align="left">
+                    <!--entering the users names-->
+                    <label for="name">Full Name:</label>
+                </td>
+                <td>
+                    <input type="text" id="name" required size="40">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><br></td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <!--Entering the email section-->
+                    <label for="email">Email Address:</label>
+                </td>
+                <td >
+                    <input type="email" id="email" required size="40">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><br></td>
+            </tr>
+            <tr>
+                <td align="left">
+                    <!--Subject section-->
+                    <label for="subject">Subject:</label>
+                </td>
+                <td>
+                    <select id="subject" name="subject" required>
+                        <option value="">--Select a subject--</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="other">Other</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><br></td>
+            </tr>
+            <tr>
+                <!--Message section-->
+                <td align="left" valign="top">
+                    <label for="message">Message:</label>
+                </td>
+                <td>
+                    <!--Adding an example of what to type in the message box-->
+                    <textarea id="message" name="message" rows="6" cols="38" required placeholder="Type your message here..."></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><br></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button type="submit">Submit</button>
+                </td>
+            </tr>
+        </table>
+        </form>
+
+        <br>
+        <p><strong>Note:</strong>All fields are required. All equiries will be attended to within 24-48 hours.</p>
+    </section>
+
+    </main>
+
+    <br><br>
+
+</body>
+<hr>
+<footer>
+    <table width="100%" cellpadding="20">
+        <tr>
+            <!--Left column: about section-->
+            <td width="33%" valign="top" align="left">
+                <h2>ABOUT US: Our members</h2>
+                <ul> 
+                    <li>Mahogany Adom - Founder & Lead stylist</li>
+                    <li>Lorreign Kiell - Senior stylist</li>
+                    <li>Shayla Michelle - Haircare Manager</li>
+                    <li>Selwalenkwe Machaka - Stylist</li>
+                    <li>Sebolla Manthata - Store Manager</li>
+                </ul>
+            </td>
+            
+            <!--Middle column: important links-->
+            <td width="33%" valign="top" align="center"> 
+                <h2>IMPORTANT LINKS</h2>
+                <ul type="none"> 
+                    <li><a href="../index.html">Home</a></li>
+                    <br>
+                    <li><a href="./service.html">Service</a></li>
+                    <br>
+                    <li><a href="./products.html">Products</a></li>
+                    <br>
+                    <li><a href="./about_us.html">About us</a></li>
+                    <br>
+                    <li><a href="./contact_us.html">Contact us</a></li>
+                    <br>
+                    <li><a href="./enquiry.html"></a></li>
+                </ul>
+            </td>
+            <!--Third column: Contact us section-->
+            <td width="33%" valign="top" align="right">
+                <h2>CONTACT US</h2>
+                <p><strong>Address:</strong>
+                19 Plein Street<br>
+                Polokwane 0700<br>
+                Limpopo, South Africa
+            </p>
+            <p><strong>Phone Number:</strong>
+            <p>+27 65 383 4718</p>
+            
+            <p><strong>Email:</strong></p>
+            <p>mahoHair@gmail.com</p>
+            </td>
+        </tr>
+    </table>
+    <p align="center">© 2026 Mahogany Hair Salon. All rights reserved.</p>
+</footer>
+</html>
