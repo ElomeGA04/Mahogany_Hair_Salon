@@ -87,5 +87,6 @@ No server or dependencies required.
 - Email: mahoHair@gmail.com
 - Website: Open index.html
 
-
+16/05/2026
+Added style.css and linked it to index.html
 
