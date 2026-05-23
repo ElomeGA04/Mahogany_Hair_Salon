@@ -1,141 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../Assets/css/style.css">
 </head>
-<body style="background-color: #e7dbaaee;">
+
+<body>
     <header>
         <table width="100%">
             <!--Adding the business logo and name-->
             <tr>
                 <td align="left">
-                    <div class="logo">
-                <img src="../Assets/Images/newer_logo.png" alt="Mahogany Hair Salon" width="100px" height="80px">
-                    <strong>Mahogany Hair Salon</strong>
+                    <div id="logo">
+                        <img id="logo-image" src="../Assets/Images/newer_logo.png" alt="Mahogany Hair Salon"
+                            width="100px" height="80px">
+                        <strong id="logo-name">Mahogany Hair Salon</strong>
                     </div>
                 </td>
                 <td align="right">
-                <!--Adding the navigation links to about us page-->
-                <div class="nav-links">
-                    <a href="../index.html">HOME</a>
-                    <a href="./service.html">SERVICE</a>
-                    <a href="./products.html">PRODUCTS</a>
-                    <a href="./about_us.html">ABOUT US</a>
-                    <a href="./contact_us.html">CONTACT US</a>
-                    <a href="./enquiry.html">ENQUIRY</a>
+                    <!--Adding the navigation links to about us page-->
+                    <div class="nav-links">
+                        <a href="../index.html"><i class="">HOME</a>
+                        <a href="./service.html"><i class=""></i>SERVICE</a>
+                        <a href="./products.html"><i class=""></i>PRODUCTS</a>
+                        <a href="./about_us.html"><i class=""></i>ABOUT US</a>
+                        <a href="./contact_us.html"><i class=""></i>CONTACT US</a>
+                        <a href="./enquiry.html"><i class=""></i>ENQUIRY</a>
                     </div>
 
                 </td>
             </tr>
-            
+
         </table>
-        <hr width="100%">
+
     </header>
     <main>
-        <header>
-            <!--About us headline-->
-           <h1 style="text-align: center;">About Mahogany Hair Salon</h1>
-        </header>
-            <table width="100%" cellpadding="20">
-                <tr>
-                    <!--Adding the founder image to about us-->
-                    <td align="center" valign="top" width="60%">
-                        <h2 align="center">Our Founder</h2>
-                      <img src="../Assets/Images/hero_image_about_us.jpg" alt="founder-picture" width="90%">
-                    </td>
-                    
-                        <td valign= "top" width="60%">
-                                <h2 align = "center">Who we are</h2>
-                                <p>At Mahogany Hair Salon, we are dedicated to providing exceptional hair care services in a welcoming and stylish environment. Our team of experienced stylists are passionate about helping you look and feel your best. Whether you're looking for a trendy haircut, vibrant color, or a relaxing treatment, we have you covered. We use high-quality products and the latest techniques to ensure you leave our salon with a smile on your face. Visit us today and experience the difference at Mahogany Hair Salon!</p>
-                                <button onclick="location.href='#'">Read More</button>
-                            </br>
-                            
-                                <!--Added more sections to the about us page-->
-                                <h2 align = "center">Our History</h2>
-                                <p>What started as a small dorm-room service in 2022, washing and braiding friends' hair, quickly grew. Mahogany; our founder, noticed a gap for affordable, trustworthy hair care near campus. Today, Mahogany Hair Salon is a beloved storefront and quality meet. </p>
-                           
-                                <h2 align = "center">Our Mission</h2>
-                                <p>Our mission at Mahogany Hair Salon is to provide high-quality, affordable beauty services and products in a welcoming space, with a special focus on students and young professionals far from home.</p>  
-                          
-                                <h2 align = "center">Our Vision</h2>
-                                <p>To expand Mahogany into a trusted brand across multiple university towns, empowering student-enterpreneurs and making self-care accessible to all.</p>
 
-                                <h2 align="center">Our Target Audience</h2>
-                                <ul>
-                                    <li>Far from home University Students</li>
-                                    <li>Clients with natural, curly, and transitioning hair</li>
-                                    <li>Anyone seeking budget-friendly manicures, pedicures, and makeup serices</li>
-                                    <li>Gift buyers</li>
-                                    <li>Residents</li>
-                                </ul>
-                            
-                        <h2 align = "center">Our Team</h2>
-                        
+        <!--About us headline-->
+        <div class="hero">
+            <h1 align="center">About Mahogany Hair Salon</h1>
+        </div>
+
+        <table width="100%" cellpadding="20">
+            <tr>
+                <!--Adding the founder image to about us-->
+                <td align="center" valign="top" width="60%">
+                    <div class="hero">
+                        <h2 align="center">Our Founder</h2>
+                    </div>
+                    <img src="../Assets/Images/hero_image_about_us.jpg" alt="founder-picture" width="90%">
+                </td>
+
+                <td valign="top" width="60%">
+                    <div class="hero">
+                        <h2 align="center">Who we are</h2>
+                        <p>At Mahogany Hair Salon, we are dedicated to providing exceptional hair care services in a
+                            welcoming and stylish environment. Our team of experienced stylists are passionate about
+                            helping you look and feel your best. Whether you're looking for a trendy haircut, vibrant
+                            color, or a relaxing treatment, we have you covered. We use high-quality products and the
+                            latest techniques to ensure you leave our salon with a smile on your face. Visit us today
+                            and experience the difference at Mahogany Hair Salon!</p>
+                    </div>
+                    <button class="btn" onclick="location.href='#'">Read More</button>
+                    </br>
+
+                    <!--Added more sections to the about us page-->
+                    <div class="hero">
+                        <h2 align="center">Our History</h2>
+                        <p>What started as a small dorm-room service in 2022, washing and braiding friends' hair,
+                            quickly grew. Mahogany; our founder, noticed a gap for affordable, trustworthy hair care
+                            near campus. Today, Mahogany Hair Salon is a beloved storefront and quality meet.</p>
+                    </div>
+
+                    <div class="hero">
+                        <h2 align="center">Our Mission</h2>
+                        <p>Our mission at Mahogany Hair Salon is to provide high-quality, affordable beauty services and
+                            products in a welcoming space, with a special focus on students and young professionals far
+                            from home.</p>
+                    </div>
+
+                    <div class="hero">
+                        <h2 align="center">Our Vision</h2>
+                        <p>To expand Mahogany into a trusted brand across multiple university towns, empowering
+                            student-enterpreneurs and making self-care accessible to all.</p>
+                    </div>
+
+                    <div class="hero">
+                        <h2 align="center">Our Target Audience</h2>
+                        <ul>
+                            <li>Residents</li>
+                            <li>Gift buyers</li>
+                            <li>Far from home University Students</li>
+                            <li>Clients with natural, curly, and transitioning hair</li>
+                            <li>Anyone seeking budget-friendly manicures, pedicures, and makeup serices</li>
+
+
+                        </ul>
+                    </div>
+
+                    <div class="hero">
+                        <h2 align="center">Our Team</h2>
                         <!--The salon team members-->
-                            <ul type="none"> 
+                        <ul type="none">
+                            <li>Mahogany Adom - Founder & Lead stylist</li>
+                            <li>Lorreign Kiell - Senior stylist</li>
+                            <li>Shayla Michelle - Haircare Manager</li>
+                            <li>Selwalenkwe Machaka - Stylist</li>
+                            <li>Sebolla Manthata - Store Manager</li>
+                        </ul>
+                    </div>
+
+        </table>
+        </header>
+    </main>
+    <br>
+
+    <footer class="footer">
+        <table width="100%" cellpadding="20">
+            <tr>
+                <!--Left column: about section-->
+                <td width="33%" valign="top" align="left">
+                    <div class="footer-container">
+                        <div class="footer-section">
+                            <h2>ABOUT US: Our members</h2>
+                            <ul>
                                 <li>Mahogany Adom - Founder & Lead stylist</li>
                                 <li>Lorreign Kiell - Senior stylist</li>
                                 <li>Shayla Michelle - Haircare Manager</li>
                                 <li>Selwalenkwe Machaka - Stylist</li>
                                 <li>Sebolla Manthata - Store Manager</li>
                             </ul>
-            </table>     
-        </header>
-    </main>
-<br>
-<hr>
-    <footer>
-        <table width="100%" cellpadding="20">
-        <tr>
-            <!--Left column: about section-->
-            <td width="33%" valign="top" align="left">
-                <h2>ABOUT US: Our members</h2>
-                <ul> 
-                    <li>Mahogany Adom - Founder & Lead stylist</li>
-                    <li>Lorreign Kiell - Senior stylist</li>
-                    <li>Shayla Michelle - Haircare Manager</li>
-                    <li>Selwalenkwe Machaka - Stylist</li>
-                    <li>Sebolla Manthata - Store Manager</li>
-                </ul>
-            </td>
-            
-            <!--Middle column: important links-->
-            <td width="33%" valign="top" align="center"> 
-                <h2>IMPORTANT LINKS</h2>
-                <ul type="none"> 
-                    <li><a href="../index.html">Home</a></li>
-                    <br>
-                    <li><a href="./service.html">Service</a></li>
-                    <br>
-                    <li><a href="./products.html">Products</a></li>
-                    <br>
-                    <li><a href="./about_us.html">About us</a></li>
-                    <br>
-                    <li><a href="./contact_us.html">Contact us</a></li>
-                    <br>
-                    <li><a href="./enquiry.html"></a></li>
-                </ul>
-            </td>
-            <!--Third column: Contact us section-->
-            <td width="33%" valign="top" align="right">
-                <h2>CONTACT US</h2>
-                <p><strong>Address:</strong>
-                19 Plein Street<br>
-                Polokwane 0700<br>
-                Limpopo, South Africa
-            </p>
-            <p><strong>Phone Number:</strong>
-            <p>+27 65 383 4718</p>
-            
-            <p><strong>Email:</strong></p>
-            <p>mahoHair@gmail.com</p>
-            </td>
-        </tr>
-    </table>
-        <p align = "center"> &copy; 2026 Mahogany Hair Salon. All rights reserved.</p>
+                        </div>
+                </td>
+
+                <!--Middle column: important links-->
+                <td width="33%" valign="top" align="center">
+                    <div class="footer-section">
+                        <h2>IMPORTANT LINKS</h2>
+                        <ul type="none">
+                            <div class="footer-links">
+                                <li><a href="../index.html">HOME</a></li>
+                                <li><a href="./service.html">SERVICE</a></li>
+                                <li><a href="./products.html">PRODUCTS</a></li>
+                                <li><a href="./about_us.html">ABOUT US</a></li>
+                                <li><a href="./contact_us.html">CONTACT US</a></li>
+                                <li><a href="./enquiry.html">ENQUIRY</a></li>
+                            </div>
+                        </ul>
+                    </div>
+                </td>
+                <!--Third column: Contact us section-->
+                <td width="33%" valign="top" align="right">
+                    <div class="footer-section">
+                        <h2>CONTACT US</h2>
+                        <p><strong>Address:</strong>
+                            19 Plein Street<br>
+                            Polokwane 0700<br>
+                            Limpopo, South Africa
+                        </p>
+                        <p><strong>Phone Number:</strong>
+                            +27 65 383 4718</p>
+
+                        <p><strong>Email:</strong>
+                            mahoHair@gmail.com</p>
+                    </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="footer-bottom">
+            <p align="center"> &copy; 2026 Mahogany Hair Salon. All rights reserved.</p>
+        </div>
     </footer>
 
 </body>
+
 </html>

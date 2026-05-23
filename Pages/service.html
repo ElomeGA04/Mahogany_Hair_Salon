@@ -1,47 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../Assets/css/style.css">
 </head>
+
 <body>
-   <header>
+    <header>
         <table width="100%">
             <!--Adding the business logo and name-->
             <tr>
                 <td align="left">
-                    <div class="logo">
-                <img src="../Assets/Images/newer_logo.png" alt="Mahogany Hair Salon" width="100px" height="80px">
-                    <strong>Mahogany Hair Salon</strong>
+                    <div id="logo">
+                        <img id="logo-image" src="../Assets/Images/newer_logo.png" alt="Mahogany Hair Salon"
+                            width="100px" height="80px">
+                        <strong id="logo-name">Mahogany Hair Salon</strong>
                     </div>
 
                 </td>
                 <td align="right">
                     <!--Adding the navigation links to service page-->
                     <div class="nav-links">
-                    <a href="../index.html">HOME</a>
-                    <a href="./service.html">SERVICE</a>
-                    <a href="./products.html">PRODUCTS</a>    
-                    <a href="./about_us.html">ABOUT US</a>
-                    <a href="./contact_us.html">CONTACT US</a>
-                    <a href="./enquiry.html">ENQUIRY</a>
+                        <a href="../index.html"><i class="">HOME</a>
+                        <a href="./service.html"><i class=""></i>SERVICE</a>
+                        <a href="./products.html"><i class=""></i>PRODUCTS</a>
+                        <a href="./about_us.html"><i class=""></i>ABOUT US</a>
+                        <a href="./contact_us.html"><i class=""></i>CONTACT US</a>
+                        <a href="./enquiry.html"><i class=""></i>ENQUIRY</a>
                     </div>
-                    
+
                 </td>
             </tr>
         </table>
-        <hr width="100%">
+
     </header>
-    <main> 
-        <header> 
-            <!--Added content to the service page-->
-            <h1 style="text-align: center;">Mahogany Services</h1>
-            <p style="width: 100%; text-align: center;">At Mahogany Hair Salon, we provide quality service for our clients, focusing on their personal style and preferences. Our services include braiding, styling, makeup application, wig installation, haircare, and nail application. We ensure that our clients leave our chairs feelin confident and radiant.
-            </p>
-        </header>
+    <main>
+
         <section align="center">
-            <h2 align="center">Braiding</h2>
+            <!--Added content to the service page-->
+            <div class="hero">
+                <h1 align="center">Mahogany Services</h1>
+                <p align="center">At Mahogany Hair Salon, we provide quality service for our clients, focusing on their
+                    personal style and preferences. Our services include braiding, styling, makeup application, wig
+                    installation, haircare, and nail application. We ensure that our clients leave our chairs feelin
+                    confident and radiant.</p>
+            </div>
+        </section>
+
+        <section align="center">
+            <div class="hero">
+                <h2 align="center">Braiding</h2>
+            </div>
         </section>
         <table cellspacing="10" width="100%">
             <!--Adding the braids section-->
@@ -54,7 +67,7 @@
                     <img src="../Assets/Images/braided_head.jpg" alt="braided-head" width="200" height="250">
                     <p>Patewo braids: R300</p>
                 </td>
-                <td align="center"> 
+                <td align="center">
                     <img src="../Assets/Images/braided_short.jpg" alt="braided-short" width="200" height="250">
                     <p>Short knotless braids: R380</p>
                 </td>
@@ -62,7 +75,9 @@
         </table>
         <br><br>
         <section align="center">
-            <h2 align="center">Wig Intallation</h2>
+            <div class="hero">
+                <h2 align="center">Wig Intallation</h2>
+            </div>
         </section>
         <table cellspacing="10" width="100%">
             <!--Adding the wig installation section-->
@@ -82,7 +97,7 @@
                 <td align="center">
                     <img src="../Assets/Images/hair_long_side.jpg" alt="long-side" width="200" height="250">
                     <p>Side part: R400</p>
-                </td> 
+                </td>
                 <td align="center">
                     <img src="../Assets/Images/hair_short.jpg" alt="short-hair" width="200" height="250">
                     <p>Short bob: R280</p>
@@ -94,12 +109,14 @@
             </tr>
         </table>
         <section align="center">
-            <h2 align="center">Nail Art</h2>
+            <div class="hero">
+                <h2 align="center">Nail Art</h2>
+            </div>
         </section>
         <table cellspacing="10" width="100%">
             <!--Adding the nail art section-->
-            <tr> 
-                <td align="center"> 
+            <tr>
+                <td align="center">
                     <img src="../Assets/Images/nail_2.jpg" alt="nail-art" width="200" height="250">
                     <p>Medium almond: R290</p>
                 </td>
@@ -127,7 +144,9 @@
             </tr>
         </table>
         <section align="center">
-            <h2 align="center">Makeup Looks</h2>
+            <div class="hero">
+                <h2 align="center">Makeup Looks</h2>
+
         </section>
         <table cellspacing="10" width="100%">
             <!--Adding the makeup looks and the prices-->
@@ -150,55 +169,64 @@
 
 
 </body>
-<hr>
-<footer>
+
+<footer class="footer">
     <table width="100%" cellpadding="20">
         <tr>
             <!--Left column: about section-->
             <td width="33%" valign="top" align="left">
-                <h2>ABOUT US: Our members</h2>
-                <ul> 
-                    <li>Mahogany Adom - Founder & Lead stylist</li>
-                    <li>Lorreign Kiell - Senior stylist</li>
-                    <li>Shayla Michelle - Haircare Manager</li>
-                    <li>Selwalenkwe Machaka - Stylist</li>
-                    <li>Sebolla Manthata - Store Manager</li>
-                </ul>
+                <div class="footer-container">
+                    <div class="footer-section">
+                        <h2>ABOUT US: Our members</h2>
+                        <ul>
+                            <li>Mahogany Adom - Founder & Lead stylist</li>
+                            <li>Lorreign Kiell - Senior stylist</li>
+                            <li>Shayla Michelle - Haircare Manager</li>
+                            <li>Selwalenkwe Machaka - Stylist</li>
+                            <li>Sebolla Manthata - Store Manager</li>
+                        </ul>
+                    </div>
             </td>
-            
+
             <!--Middle column: important links-->
-            <td width="33%" valign="top" align="center"> 
-                <h2>IMPORTANT LINKS</h2>
-                <ul type="none"> 
-                    <li><a href="../index.html">Home</a></li>
-                    <br>
-                    <li><a href="./service.html">Service</a></li>
-                    <br>
-                    <li><a href="./products.html">Products</a></li>
-                    <br>
-                    <li><a href="./about_us.html">About us</a></li>
-                    <br>
-                    <li><a href="./contact_us.html">Contact us</a></li>
-                    <br>
-                    <li><a href="./enquiry.html"></a></li>
-                </ul>
+            <td width="33%" valign="top" align="center">
+                <div class="footer-section">
+                    <h2>IMPORTANT LINKS</h2>
+                    <ul type="none">
+                        <div class="footer-links">
+                            <li><a href="../index.html">HOME</a></li>
+                            <li><a href="./service.html">SERVICE</a></li>
+                            <li><a href="./products.html">PRODUCTS</a></li>
+                            <li><a href="./about_us.html">ABOUT US</a></li>
+                            <li><a href="./contact_us.html">CONTACT US</a></li>
+                            <li><a href="./enquiry.html">ENQUIRY</a></li>
+                        </div>
+                    </ul>
+                </div>
             </td>
             <!--Third column: Contact us section-->
             <td width="33%" valign="top" align="right">
-                <h2>CONTACT US</h2>
-                <p><strong>Address:</strong>
-                19 Plein Street<br>
-                Polokwane 0700<br>
-                Limpopo, South Africa
-            </p>
-            <p><strong>Phone Number:</strong>
-            <p>+27 65 383 4718</p>
-            
-            <p><strong>Email:</strong></p>
-            <p>mahoHair@gmail.com</p>
+                <div class="footer-section">
+                    <h2>CONTACT US</h2>
+                    <p><strong>Address:</strong>
+                        19 Plein Street<br>
+                        Polokwane 0700<br>
+                        Limpopo, South Africa
+                    </p>
+                    <p><strong>Phone Number:</strong>
+                        +27 65 383 4718</p>
+
+                    <p><strong>Email:</strong>
+                        mahoHair@gmail.com</p>
+                </div>
+                </div>
             </td>
         </tr>
     </table>
-    <p align="center">© 2026 Mahogany Hair Salon. All rights reserved.</p>
+
+    <div class="footer-bottom">
+        <p align="center">© 2026 Mahogany Hair Salon. All rights reserved.</p>
+    </div>
 </footer>
+
 </html>

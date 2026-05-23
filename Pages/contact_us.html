@@ -1,51 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../Assets/css/style.css">
 </head>
+
 <body>
-   <header>
-    <table width="100%">
+    <header>
+        <table width="100%">
             <tr>
                 <td align="left">
                     <!--Adding the business logo and name-->
-                    <div class="logo">
-                <img src="../Assets/Images/newer_logo.png" alt="Mahogany Hair Salon" width="100px" height="80px">
-                    <strong>Mahogany Hair Salon</strong>
+                    <div id="logo">
+                        <img id="logo-image" src="../Assets/Images/newer_logo.png" alt="Mahogany Hair Salon"
+                            width="100px" height="80px">
+                        <strong id="logo-name">Mahogany Hair Salon</strong>
                     </div>
                 </td>
                 <td align="right">
-                <!--Adding navigation links to contact us page-->
-                <div class="nav-links">
-                    <a href="../index.html">HOME</a>
-                    <a href="./service.html">SERVICE</a>
-                    <a href="./products.html">PRODUCTS</a>   
-                    <a href="./about_us.html">ABOUT US</a>
-                    <a href="./contact_us.html">CONTACT US</a>
-                    <a href="./enquiry.html">ENQUIRY</a>
+                    <!--Adding navigation links to contact us page-->
+                    <div class="nav-links">
+                        <a href="../index.html"><i class="">HOME</a>
+                        <a href="./service.html"><i class=""></i>SERVICE</a>
+                        <a href="./products.html"><i class=""></i>PRODUCTS</a>
+                        <a href="./about_us.html"><i class=""></i>ABOUT US</a>
+                        <a href="./contact_us.html"><i class=""></i>CONTACT US</a>
+                        <a href="./enquiry.html"><i class=""></i>ENQUIRY</a>
                     </div>
 
                 </td>
             </tr>
         </table>
-        <hr width="100%">
+
     </header>
-    
+
     <section>
         <!--Adding to the contact us page-->
-        <h2 align="center">Location Map</h2>
-        <p align="center">Find us easily using the map below:</p>
+        <div class="hero">
+            <h1 align="center">Location Map</h1>
+            <p align="center">Find us easily using the map below:</p>
+        </div>
         <br>
 
         <div align="center">
             <!--Embedded google location map-->
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3645.987654321!2d29.456789!3d-23.901234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDU0JzA0LjQiUyAyOcKwMjcnMjQuNCJF!5e0!3m2!1sen!2sza!4v1234567890123!5m2!1sen!2sza"
-            width="80%"
-            height="400"
-            allowfullscreen>
-                
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3645.987654321!2d29.456789!3d-23.901234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDU0JzA0LjQiUyAyOcKwMjcnMjQuNCJF!5e0!3m2!1sen!2sza!4v1234567890123!5m2!1sen!2sza"
+                width="80%" height="400" allowfullscreen>
+
             </iframe>
         </div>
 
@@ -54,92 +60,108 @@
             <a href="https://maps.google.com/?q=19+Plein+Street+Polokwane" target="_blank">Open in Google Maps</a>
         </p>
     </section>
-   
-  <table width="100%" align="center" cellpadding="20">
-    <tr> 
-        <!--Left column: contact details-->
-        <td width="50%" valign="top" cellpadding="100%">
-            <h2>Contact details</h2>
-            <p><strong>Adderss:</strong><br>
-            19 plein street<br>
-            Polokwane, 0700<br>
-            Limpopo, South Africa
-            </p>
-            <br> 
-            
-            <p><strong>Phone Number:</strong>
-            <p>+27 65 383 4718</p>
-            
-            <p><strong>Email:</strong></p>
-            <p>mahoHair@gmail.com</p>
-       
-        </td>
-        <!--Right column: Opening Hours-->
-        <td width="50%" valign="top" cellpadding="100%">
-            <h2>Opening Hours</h2>
-            <p>Monday  - Friday: 7am - 4pm
-            <br>
-            Saturday: 9am - 4pm
-            <br>
-            Sunday: 9am - 4pm
-            <br>
-            Holidays: 10am - 2pm(Appointments only)
-        </p>
 
-        </td>
-    </tr>
-  </table>
+    <table width="100%" align="center" cellpadding="20">
+        <tr>
+            <!--Left column: contact details-->
+            <td width="50%" valign="top" cellpadding="100%">
+                <div class="hero">
+                    <ul>
+                        <h2>Contact details</h2>
+                        <p><strong>Adderss:</strong><br>
+                            19 plein street<br>
+                            Polokwane, 0700<br>
+                            Limpopo, South Africa
+                        </p>
+                        <br>
+
+                        <p><strong>Phone Number:</strong>
+                            +27 65 383 4718</p>
+
+                        <p><strong>Email:</strong>
+                            mahoHair@gmail.com</p>
+                    </ul>
+                </div>
+
+            </td>
+            <!--Right column: Opening Hours-->
+            <td width="50%" valign="top" cellpadding="100%">
+                <div class="hero">
+                    <ul>
+                        <h2>Opening Hours</h2>
+                        <p>Monday - Friday: 7am - 4pm
+                            <br>
+                            Saturday: 9am - 4pm
+                            <br>
+                            Sunday: 9am - 4pm
+                            <br>
+                            Holidays: 10am - 2pm(Appointments only)
+                        </p>
+                    </ul>
+                </div>
+
+            </td>
+        </tr>
+    </table>
 
 </body>
-<hr>
-<footer>
+
+<footer class="footer">
     <table width="100%" cellpadding="20">
         <tr>
             <!--Left column: about section-->
             <td width="33%" valign="top" align="left">
-                <h2>ABOUT US: Our members</h2>
-                <ul> 
-                    <li>Mahogany Adom - Founder & Lead stylist</li>
-                    <li>Lorreign Kiell - Senior stylist</li>
-                    <li>Shayla Michelle - Haircare Manager</li>
-                    <li>Selwalenkwe Machaka - Stylist</li>
-                    <li>Sebolla Manthata - Store Manager</li>
-                </ul>
+                <div class="footer-container">
+                    <div class="footer-section">
+                        <h2>ABOUT US: Our members</h2>
+                        <ul>
+                            <li>Mahogany Adom - Founder & Lead stylist</li>
+                            <li>Lorreign Kiell - Senior stylist</li>
+                            <li>Shayla Michelle - Haircare Manager</li>
+                            <li>Selwalenkwe Machaka - Stylist</li>
+                            <li>Sebolla Manthata - Store Manager</li>
+                        </ul>
+                    </div>
             </td>
-            
+
             <!--Middle column: important links-->
-            <td width="33%" valign="top" align="center"> 
-                <h2>IMPORTANT LINKS</h2>
-                <ul type="none"> 
-                    <li><a href="../index.html">Home</a></li>
-                    <br>
-                    <li><a href="./service.html">Service</a></li>
-                    <br>
-                    <li><a href="./products.html">Products</a></li>
-                    <br>
-                    <li><a href="./about_us.html">About us</a></li>
-                    <br>
-                    <li><a href="./contact_us.html">Contact us</a></li>
-                    <br>
-                    <li><a href="./enquiry.html"></a></li>
-                </ul>
+            <td width="33%" valign="top" align="center">
+                <div class="footer-section">
+                    <h2>IMPORTANT LINKS</h2>
+                    <ul type="none">
+                        <div class="footer-links">
+                            <li><a href="../index.html">HOME</a></li>
+                            <li><a href="./service.html">SERVICE</a></li>
+                            <li><a href="./products.html">PRODUCTS</a></li>
+                            <li><a href="./about_us.html">ABOUT US</a></li>
+                            <li><a href="./contact_us.html">CONTACT US</a></li>
+                            <li><a href="./enquiry.html">ENQUIRY</a></li>
+                        </div>
+                    </ul>
+                </div>
             </td>
             <!--Third column: Contact us section-->
             <td width="33%" valign="top" align="right">
-                <h2>CONTACT US</h2>
-                <p><strong>Address:</strong>
-                19 Plein Street<br>
-                Polokwane 0700<br>
-                Limpopo, South Africa
-            </p>
-            <p><strong>Phone Number:</strong>
-            <p>+27 65 383 4718</p>
-            
-            <p><strong>Email:</strong></p>
-            <p>mahoHair@gmail.com</p>
+                <div class="footer-section">
+                    <h2>CONTACT US</h2>
+                    <p><strong>Address:</strong>
+                        19 Plein Street<br>
+                        Polokwane 0700<br>
+                        Limpopo, South Africa
+                    </p>
+                    <p><strong>Phone Number:</strong>
+                        +27 65 383 4718</p>
+
+                    <p><strong>Email:</strong>
+                        mahoHair@gmail.com</p>
+                </div>
+                </div>
             </td>
         </tr>
     </table>
-    <p align="center">© 2026 Mahogany Hair Salon. All rights reserved.</p>
+    <div class="footer-bottom">
+        <p align="center">© 2026 Mahogany Hair Salon. All rights reserved.</p>
+    </div>
 </footer>
+
 </html>
