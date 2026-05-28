@@ -46,13 +46,14 @@ header {
   border-radius: 10px;
   display: flex;
   flex-direction: row;
-  align-items: right;
-  justify-content: space-between;
-  gap: 2rem;
+  align-items: center;
+  justify-content:space-between;
   background: #43302e;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 2rem;
   position: sticky;
   top: 0;
+  z-index: 100;
+  margin: 10px;
 }
 
 #logo {
@@ -60,6 +61,7 @@ header {
   align-items: center;
   border-radius: 10px;
   padding: 5px;
+  gap: 0.5rem;
 }
 
 #logo-image {
@@ -94,6 +96,7 @@ header {
 .nav-links {
   display: flex;
   flex-direction: row;
+  gap: 0.5rem;
   align-items: center;
 }
 
@@ -107,7 +110,7 @@ header {
   text-decoration: none;
   font-size: 1rem;
   font-weight: 500;
-  padding: 0.5px 6px;
+  padding: 8px 12px;
   border-radius: 25px;
   transition: all 0.3s ease;
   letter-spacing: 0.5px;
@@ -204,11 +207,6 @@ nav a.active {
   background: #43302e;
   color: #fff1b5;
   border: 2px solid #43302e;
-}
-
-.btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
 }
 
 /* Footer */
@@ -355,15 +353,15 @@ img {
   }
 
   /* Navigation - stack vertically on mobile */
-  section table, 
-  section tbody, 
-  section tr, 
-  section td{
+  table, 
+  tbody, 
+  tr, 
+  td{
     display: block;
     width: 100%;
   }
 
-  section td{
+  td{
     text-align: center;
     margin-bottom: 1.5rem;
     padding: 10px;
