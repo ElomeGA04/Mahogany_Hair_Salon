@@ -15,6 +15,21 @@ body {
   color: #43302e;
 }
 
+.font{
+  font-weight:bold;
+}
+
+.products-img {
+  box-shadow: 0 5px 15px black;
+  border-radius: 10px;
+  transition: all 0.9s ease;
+}
+.products-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(218, 165, 32, 1);
+
+}
+
 h1 {
   font-family: "Playfair Display", serif;
   font-size: 2.5rem;
@@ -47,7 +62,7 @@ header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content:space-between;
+  justify-content: space-between;
   background: #43302e;
   padding: 0.5rem 2rem;
   position: sticky;
@@ -124,7 +139,7 @@ header {
 
 .nav-links a.active {
   color: #c1dbe8;
-  border-bottom: 2px solid #C1DBE8;
+  border-bottom: 2px solid #c1dbe8;
   background-color: rgba(193, 219, 232, 0.1);
 }
 
@@ -209,7 +224,44 @@ header {
   border: 2px solid #43302e;
 }
 
-.enquiry-form{
+.btn-prod{
+display: inline-block;
+background: #43302e;
+color:#fff1b5;
+font-family: "Poppins", sans-serif;
+font-size: 0.9rem;
+font-weight: 100;
+padding: 6px 6px;
+border: none;
+border-radius: 30px;
+cursor:pointer;
+text-decoration: none;
+text-align: center;
+transition: all 0.3s ease;
+letter-spacing: 0.7px;
+
+}
+
+.btn-prod:hover{
+  background: #c1dbe8;
+  color: #43302e;
+  font-size: 0.9rem;
+  font-weight: 100;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(67, 48, 46, 0.3);
+}
+
+.btn-prod:focus{
+  outline: 2px solid #c1dbe8;
+  outline-offset: 2px;
+}
+
+.btn-prod:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 5px rgba(67, 48, 46, 0.2);
+}
+
+.enquiry-form {
   max-width: 600px;
   margin: 0 auto;
   background: #44302e;
@@ -218,53 +270,53 @@ header {
   box-shadow: 0 5px 20px rgba(67, 48, 46, 0.1);
 }
 
-.form-group{
+.form-group {
   margin-bottom: 1.5rem;
   text-align: left;
 }
 
-.form-group label{
+.form-group label {
   display: block;
   font-family: "Playfair Display", serif;
   font-weight: 600;
-  color: #FFF1B5;
+  color: #fff1b5;
   margin-bottom: 0.5rem;
 }
 
-.form-group input, 
-.form-group select, 
-.form-group textarea{
+.form-group input,
+.form-group select,
+.form-group textarea {
   width: 100%;
   padding: 12px 15px;
   border: 2px solid #43302e;
   border-radius: 10px;
   font-size: 1rem;
   font-family: "Poppins", sans-serif;
-  background: #FFF1B5;
+  background: #fff1b5;
   transition: all 0.3s ease;
 }
 
 .form-group input:hover,
 .form-group select:hover,
-.form-group textarea:hover{
-  border-color:#C1DBE8;
+.form-group textarea:hover {
+  border-color: #c1dbe8;
 }
 
-.form-group textarea{
+.form-group textarea {
   resize: vertical;
   min-height: 120px;
 }
 
 /*two columns layout*/
-.form-row{
+.form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem; 
+  gap: 1rem;
 }
 
 /*Submit button*/
-.submit-btn{
-  background: #FFF1B5;
+.submit-btn {
+  background: #fff1b5;
   font-family: "Playfair Display", serif;
   font-size: 1rem;
   font-weight: 600;
@@ -276,8 +328,8 @@ header {
   transition: all 0.3s ease;
 }
 
-.submit-btn:hover{
-  background: #C1DBE8;
+.submit-btn:hover {
+  background: #c1dbe8;
   color: #43302e;
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(67, 48, 46, 0.3);
@@ -364,9 +416,16 @@ header {
 }
 
 /* Images */
-img {
+.img-hero {
   max-width: 100%;
   height: auto;
+  transition: all 0.9s ease;
+}
+
+.img-hero:hover{
+  transform: scale(1.05);
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(24, 18, 6, 0.903);
 }
 
 /*RESPONSIVE MEDIA QUERIES*/
@@ -405,7 +464,6 @@ img {
 
 /* Mobile Breakpoint */
 @media screen and (max-width: 767px) {
-  
   h1 {
     font-size: 1.75rem;
   }
@@ -425,15 +483,15 @@ img {
   }
 
   /* Navigation - stack vertically on mobile */
-  table, 
-  tbody, 
-  tr, 
-  td{
+  table,
+  tbody,
+  tr,
+  td {
     display: block;
     width: 100%;
   }
 
-  td{
+  td {
     text-align: center;
     margin-bottom: 1.5rem;
     padding: 10px;
@@ -446,16 +504,19 @@ img {
   }
 
   .nav-links {
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 0.5rem;
     width: 100%;
     text-align: center;
   }
 
   .nav-links a {
-    display: block;
+    display: inline-block;
     padding: 10px;
-    width: 100%;
+    width: auto;
     white-space: normal;
   }
 
@@ -514,13 +575,13 @@ img {
 }
 
 /*Responsive Enquiry*/
-@media (max-width: 768px){
-  .form-row{
+@media (max-width: 768px) {
+  .form-row {
     grid-template-columns: 1fr;
     gap: 0;
   }
 
-  .enquiry-form{
+  .enquiry-form {
     padding: 1.5rem;
     margin: 0 1rem;
   }
