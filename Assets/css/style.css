@@ -429,6 +429,7 @@ letter-spacing: 0.7px;
 }
 
     .services-grid {
+      display: grid;
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
