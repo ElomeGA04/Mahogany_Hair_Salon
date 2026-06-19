@@ -727,12 +727,17 @@ document.addEventListener("DOMContentLoaded", function () {
   
   // INITIALIZE ALL FEATURES
  
-  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+   const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
-  // Initialize common features
+  // Initialize common features (all pages)
   initHamburgerMenu();
   initLightbox();
-  initSearch();
+
+  // SEARCH BAR - ONLY ON PRODUCTS AND SERVICES PAGES
+  if (currentPage === "products.html" || currentPage === "service.html" || currentPage === "services.html") {
+    initSearch();
+  }
+
   loadDynamicContent();
   initScrollAnimations();
 
@@ -750,5 +755,57 @@ document.addEventListener("DOMContentLoaded", function () {
     initContactForm();
   }
 
+  //DATE & TIME
+
+   function displayDateTimeWithMonthName() {
+    const now = new Date();
+    
+    // Get weekday
+    const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const weekday = weekdays[now.getDay()];
+    
+    // Get month name
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 
+                   'July', 'August', 'September', 'October', 'November', 'December'];
+    const monthName = months[now.getMonth()];
+    
+    // Get day and year
+    const day = now.getDate();
+    const year = now.getFullYear();
+    
+    // Get time (24-hour)
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    
+    // Format: Monday, 19 June 2026 | 14:30:45
+    const dateTimeString = `${weekday}, ${day} ${monthName} ${year} | ${hours}:${minutes}:${seconds}`;
+    
+    let dateTimeDisplay = document.getElementById('dateTimeDisplay');
+    
+    if (!dateTimeDisplay) {
+      dateTimeDisplay = document.createElement('div');
+      dateTimeDisplay.id = 'dateTimeDisplay';
+      dateTimeDisplay.style.color = '#fff1b5';
+      dateTimeDisplay.style.fontSize = '0.9rem';
+      dateTimeDisplay.style.marginTop = '10px';
+      dateTimeDisplay.style.fontFamily = 'Poppins, sans-serif';
+      dateTimeDisplay.style.textAlign = 'center';
+      dateTimeDisplay.style.padding = '5px 0';
+      
+      const footerBottom = document.querySelector('.footer-bottom');
+      if (footerBottom) {
+        footerBottom.appendChild(dateTimeDisplay);
+      }
+    }
+    
+    if (dateTimeDisplay) {
+      dateTimeDisplay.textContent = ` ${dateTimeString}`;
+    }
+  }
+
+  // Initialize
+  displayDateTimeWithMonthName();
+  setInterval(displayDateTimeWithMonthName, 1000);
   console.log(" Mahogany Hair Salon - All features initialized successfully!");
 });

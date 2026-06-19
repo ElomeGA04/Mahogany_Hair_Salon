@@ -5,172 +5,153 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mahogany Hair Salon - Enquiry | Book an Appointment</title>
-<meta name="description" content="Send us your enquiry for services, products, or volunteer opportunities at Mahogany Hair Salon.">
-<meta name="keywords" content="enquiry, book appointment, Mahogany Hair Salon, Polokwane">
+    <meta name="description" content="Send us your enquiry for services, products, or volunteer opportunities at Mahogany Hair Salon.">
+    <meta name="keywords" content="enquiry, book appointment, Mahogany Hair Salon, Polokwane">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../Assets/css/style.css">
 </head>
 
 <body>
     <header>
-            <!--Adding the business logo and name-->
-                    <div id="logo">
-                        <img id="logo-image" src="../Assets/Images/newer_logo.png" alt="Mahogany Hair Salon"
-                            width="100px" height="80px">
-                        <strong id="logo-name">Mahogany Hair Salon</strong>
-                    </div>
+        <!-- Adding the business logo and name -->
+        <div id="logo">
+            <img id="logo-image" src="../Assets/Images/newer_logo.png" alt="Mahogany Hair Salon" width="100px" height="80px">
+            <strong id="logo-name">Mahogany Hair Salon</strong>
+        </div>
 
-                    <button class="hamburger-toggle" id="hamburgerToggle" aria-label="Toggle navigation menu">
-                        <span class="hamburger-icon">
-                            <span></span>
-                            <span></span>
-                            <span></span>
+        <button class="hamburger-toggle" id="hamburgerToggle" aria-label="Toggle navigation menu">
+            <span class="hamburger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>
+        </button>
 
-                        </span>
-
-                    </button>
-
-                    <!--Adding navication links to enquiry page-->
-                    <div class="nav-links" id="navLinks">
-                        <a href="../index.html">HOME</a>
-                        <a href="./service.html">SERVICE</a>
-                        <a href="./products.html">PRODUCTS</a>
-                        <a href="./about_us.html">ABOUT US</a>
-                        <a href="./contact_us.html">CONTACT US</a>
-                        <a href="./enquiry.html" class="active">ENQUIRY</a>
-                    </div>
+        <!-- Adding navigation links to enquiry page -->
+        <div class="nav-links" id="navLinks">
+            <a href="../index.html">HOME</a>
+            <a href="./service.html">SERVICE</a>
+            <a href="./products.html">PRODUCTS</a>
+            <a href="./about_us.html">ABOUT US</a>
+            <a href="./contact_us.html">CONTACT US</a>
+            <a href="./enquiry.html" class="active">ENQUIRY</a>
+        </div>
     </header>
+
     <main>
-        <!--Enquiry form section-->
+        <!-- Enquiry form section -->
         <section align="center">
             <div class="hero">
                 <h1>Send us your enquiries</h1>
-                <p align="center">Enter your details and queary below:</p>
+                <p align="center">Enter your details and query below:</p>
             </div>
         </section>
 
         <section align="center">
-
             <form class="enquiry-form" id="enquiryForm" action="#" method="post" novalidate>
-
                 <div id="formErrors" style="display: none; margin-bottom: 15px;"></div>
-                <div class="form-row">
 
-                    <!--Section for entering details-->
+                <div class="form-row">
+                    <!-- Section for entering details -->
                     <div class="form-group">
-                            <!--entering the users names-->
-                            <label for="name">Full Name:</label>
-                            <input type="text" id="name" required size="40" name="name" minLength="2" placeholder="Enter your full name">
-                    </div> 
+                        <!-- Entering the users names -->
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" required size="40" name="name" minLength="2" placeholder="Enter your full name">
+                    </div>
+
                     <div class="form-group">
-                            <!--Entering the email section-->
-                            <label for="email">Email Address:</label>
-                            <input type="email" id="email" required size="40" name="email" placeholder="Enter your email">
+                        <!-- Entering the email section -->
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" required size="40" name="email" placeholder="Enter your email">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
                         <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" required size="40" name="phone" placeholder="+27 65 383 4718">
-
+                        <input type="tel" id="phone" required size="40" name="phone" placeholder="+27 65 383 4718">
                     </div>
-
                 </div>
+
                 <div class="form-group">
-                            <!--Subject section-->
-                            <label for="subject">Subject:</label>
-                            <select id="service" name="service" required>
-                                <option value="">--Select a subject--</option>
-                                <option value="general">General Inquiry</option>
-                                <option value="feedback">Feedback</option>
-                                <option value="appointments">Appointments</option>
-                                <option value="other">Stylist</option>
-                            </select>
-                </div>       
-                <div class="form-group">      
-                            <label for="message">Message:</label>
-                            <!--Adding an example of what to type in the message box-->
-                            <textarea id="message" name="message" rows="6" cols="38" required
-                                placeholder="Type your message here..."></textarea>
-                </div> 
+                    <!-- Subject section -->
+                    <label for="service">Subject:</label>
+                    <select id="service" name="service" required>
+                        <option value="">--Select a subject--</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="appointments">Appointments</option>
+                        <option value="other">Stylist</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <!-- Adding an example of what to type in the message box -->
+                    <textarea id="message" name="message" rows="6" cols="38" required placeholder="Type your message here..."></textarea>
+                </div>
 
                 <div id="enquiryResponse" style="display: none; margin-top: 15px"></div>
-                
-                            <button class="btn" type="submit">Submit</button>
+
+                <button class="btn" type="submit">Submit</button>
             </form>
 
             <br>
             <div class="hero">
-                <p><strong>Note:</strong> All fields are required. All equiries will be attended to within 24-48 hours.
-                </p>
+                <p><strong>Note:</strong> All fields are required. All enquiries will be attended to within 24-48 hours.</p>
             </div>
         </section>
-
     </main>
 
     <br><br>
 
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Left column: about section -->
+            <div class="footer-section">
+                <h2>ABOUT US: Our members</h2>
+                <ul>
+                    <li>Mahogany Adom - Founder & Lead stylist</li>
+                    <li>Lorreign Kiell - Senior stylist</li>
+                    <li>Shayla Michelle - Haircare Manager</li>
+                    <li>Selwalenkwe Machaka - Stylist</li>
+                    <li>Sebolla Manthata - Store Manager</li>
+                </ul>
+            </div>
+
+            <!-- Middle column: important links -->
+            <div class="footer-section">
+                <h2>IMPORTANT LINKS</h2>
+                <ul>
+                    <li><a href="../index.html">HOME</a></li>
+                    <li><a href="./service.html">SERVICE</a></li>
+                    <li><a href="./products.html">PRODUCTS</a></li>
+                    <li><a href="./about_us.html">ABOUT US</a></li>
+                    <li><a href="./contact_us.html">CONTACT US</a></li>
+                    <li><a href="./enquiry.html">ENQUIRY</a></li>
+                </ul>
+            </div>
+
+            <!-- Third column: Contact us section -->
+            <div class="footer-section">
+                <h2>CONTACT US</h2>
+                <p><strong>Address:</strong><br>
+                    19 Plein Street<br>
+                    Polokwane 0700<br>
+                    Limpopo, South Africa
+                </p>
+                <p><strong>Phone Number:</strong><br>
+                    +27 65 383 4718</p>
+                <p><strong>Email:</strong><br>
+                    mahoHair@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p align="center">© 2026 Mahogany Hair Salon. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../Assets/js/script.js"></script>
 </body>
-
-<footer class="footer">
-    <table width="100%" cellpadding="20">
-        <tr>
-            <!--Left column: about section-->
-            <td width="33%" valign="top" align="left">
-                <div class="footer-container">
-                    <div class="footer-section">
-                        <h2>ABOUT US: Our members</h2>
-                        <ul>
-                            <li>Mahogany Adom - Founder & Lead stylist</li>
-                            <li>Lorreign Kiell - Senior stylist</li>
-                            <li>Shayla Michelle - Haircare Manager</li>
-                            <li>Selwalenkwe Machaka - Stylist</li>
-                            <li>Sebolla Manthata - Store Manager</li>
-                        </ul>
-                    </div>
-            </td>
-
-            <!--Middle column: important links-->
-            <td width="33%" valign="top" align="center">
-                <div class="footer-section">
-                    <h2>IMPORTANT LINKS</h2>
-                    <ul type="none">
-                        <div class="footer-links">
-                            <li><a href="../index.html">HOME</a></li>
-                            <li><a href="./service.html">SERVICE</a></li>
-                            <li><a href="./products.html">PRODUCTS</a></li>
-                            <li><a href="./about_us.html">ABOUT US</a></li>
-                            <li><a href="./contact_us.html">CONTACT US</a></li>
-                            <li><a href="./enquiry.html">ENQUIRY</a></li>
-                        </div>
-                    </ul>
-                </div>
-            </td>
-            <!--Third column: Contact us section-->
-            <td width="33%" valign="top" align="right">
-                <div class="footer-section">
-                    <h2>CONTACT US</h2>
-                    <p><strong>Address:</strong>
-                        19 Plein Street<br>
-                        Polokwane 0700<br>
-                        Limpopo, South Africa
-                    </p>
-                    <p><strong>Phone Number:</strong>
-                        +27 65 383 4718</p>
-
-                    <p><strong>Email:</strong>
-                        mahoHair@gmail.com</p>
-                </div>
-                </div>
-            </td>
-        </tr>
-    </table>
-    <div class="footer-bottom">
-        <p align="center">© 2026 Mahogany Hair Salon. All rights reserved.</p>
-    </div>
-</footer>
-
-<script src="../Assets/js/script.js"></script>
-
 </html>
