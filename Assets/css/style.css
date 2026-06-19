@@ -115,11 +115,6 @@ header {
 }
 
 .nav-links a {
-  gap: 0.1px;
-  list-style: none;
-}
-
-.nav-links a {
   color: #fff1b5;
   text-decoration: none;
   font-size: 1rem;
@@ -491,9 +486,10 @@ header {
   max-width: 70%;
   height: auto;
 }
-/*RESPONSIVE MEDIA QUERIES*/
 
-/* Tablet Breakpoint */
+/* RESPONSIVE MEDIA QUERIES */
+
+/* Tablet Breakpoint (768px - 1023px) */
 @media screen and (max-width: 1023px) and (min-width: 768px) {
   h1 {
     font-size: 2rem;
@@ -507,23 +503,20 @@ header {
     font-size: 0.95rem;
   }
 
-  /*Tablet hamburger*/
-
-  /*show hamburger button*/
   .hamburger-toggle {
     display: block;
   }
 
-  /*Header layout*/
   header {
     display: flex;
     flex-direction: row;
-    align-items: space-between;
+    align-items: center;
+    justify-content: space-between;
     padding: 0.5rem 1.5rem;
     position: relative;
+    flex-wrap: wrap;
   }
 
-  /*Navigation links - hidden by default on tablet*/
   .nav-links {
     display: none;
     flex-direction: column;
@@ -540,12 +533,10 @@ header {
     width: 100%;
   }
 
-  /* Show navigation when active */
   .nav-links.active {
     display: flex;
   }
 
-  /* Navigation links styling on mobile */
   .nav-links a {
     display: block;
     padding: 12px 15px;
@@ -555,6 +546,7 @@ header {
     transition: all 0.3s ease;
     font-size: 1rem;
     border-bottom: none;
+    white-space: normal;
   }
 
   .nav-links a:hover {
@@ -567,49 +559,15 @@ header {
     border-bottom: none;
   }
 
-  /* Footer - 2 columns on tablet */
   .footer-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
   }
-
-  /* Navigation remains horizontal on tablet */
-  .nav-links {
-    display: flex;
-    flex-direction: row;
-    gap: 0.3rem;
-  }
-
-  .nav-links a {
-    display: inline-block;
-    padding: 6px 10px;
-    font-size: 0.9rem;
-    white-space: nowrap;
-  }
 }
 
-/* Mobile Breakpoint */
+/* Mobile Breakpoint (up to 767px) */
 @media screen and (max-width: 767px) {
-  /*Hamburger*/
-  header {
-    padding: 0.5rem 1rem;
-  }
-
-  #logo-name {
-    font-size: 0.9rem;
-  }
-
-  #logo-image {
-    width: 50px;
-    height: 50px;
-  }
-
-  .nav-links a {
-    padding: 10px 12px;
-    font-size: 0.9rem;
-  }
-
   h1 {
     font-size: 1.75rem;
   }
@@ -628,7 +586,84 @@ header {
     font-size: 0.95rem;
   }
 
-  /* Navigation - stack vertically on mobile */
+  .hamburger-toggle {
+    display: block;
+    padding: 6px 10px;
+  }
+
+  .hamburger-icon {
+    width: 20px;
+    gap: 4px;
+  }
+
+  .hamburger-icon span {
+    height: 2px;
+  }
+
+  header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    position: relative;
+    flex-wrap: wrap;
+  }
+
+  #logo-name {
+    font-size: 0.8rem;
+  }
+
+  #logo-image {
+    width: 40px;
+    height: 40px;
+  }
+
+  #logo {
+    gap: 0.3rem;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #43302e;
+    padding: 1rem;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    gap: 0.3rem;
+    z-index: 99;
+    width: 100%;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 10px 12px;
+    width: 100%;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    border-bottom: none;
+    white-space: normal;
+  }
+
+  .nav-links a:hover {
+    background: rgba(193, 219, 232, 0.1);
+    border-bottom: none;
+  }
+
+  .nav-links a.active {
+    background: rgba(193, 219, 232, 0.2);
+    border-bottom: none;
+  }
+
   table,
   tbody,
   tr,
@@ -641,45 +676,6 @@ header {
     text-align: center;
     margin-bottom: 1.5rem;
     padding: 10px;
-  }
-
-  header {
-    flex-direction: column;
-    padding: 1rem;
-    gap: 1rem;
-  }
-
-  .nav-links {
-    flex-direction: row;
-    flex-wrap: wrap;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
-    width: 100%;
-    text-align: center;
-  }
-
-  .nav-links a {
-    display: inline-block;
-    padding: 10px;
-    width: auto;
-    white-space: normal;
-  }
-
-  #logo {
-    justify-content: center;
-  }
-
-  #logo-name {
-    font-size: 1rem;
-    transition: all 2s ease;
-  }
-
-  #logo-image {
-    width: 60px;
-    height: 60px;
-    filter: drop-shadow(0 0 5px rgba(67, 48, 46, 0.5));
-    transition: all 2s ease;
   }
 
   .services-grid {
@@ -699,7 +695,6 @@ header {
     height: auto;
   }
 
-  /* Footer: Single column on mobile - STACKED VERTICALLY */
   .footer-container {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -722,7 +717,6 @@ header {
     white-space: normal;
   }
 
-  /* Tables stack on mobile */
   table {
     width: 100%;
     border-collapse: collapse;
@@ -737,7 +731,7 @@ header {
   }
 }
 
-/*Responsive Enquiry*/
+/* Responsive Enquiry Form */
 @media (max-width: 768px) {
   .form-row {
     grid-template-columns: 1fr;

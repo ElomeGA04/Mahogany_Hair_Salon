@@ -38,9 +38,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // ==========================================
+  
   // GALLERY LIGHTBOX
-  // ==========================================
+  
   function initLightbox() {
     const modal = document.createElement("div");
     modal.id = "lightbox-modal";
@@ -696,9 +696,9 @@ document.addEventListener("DOMContentLoaded", function () {
     return container;
   }
 
-  // ==========================================
+ 
   // SCROLL ANIMATIONS
-  // ==========================================
+  
   function initScrollAnimations() {
     const serviceItems = document.querySelectorAll(".service-item");
     const observer = new IntersectionObserver(
@@ -724,9 +724,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ==========================================
+  
   // INITIALIZE ALL FEATURES
-  // ==========================================
+ 
   const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
   // Initialize common features
