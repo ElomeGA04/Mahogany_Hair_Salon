@@ -574,5 +574,217 @@ function initLightbox() {
 
   /*CONTACT FORM (contact_us.html)*/
 
+  function initContactForm(){
+    const contactForm = document.getElementById('contactform');
+    if(!contactForm) return;
+
+    contact.addEventListener('submit', function(e){
+        e.preventDefault();
+        
+        const name = document.getElementById('contactName')?.value?.trim() || '';
+        const email = document.getElementById('contactEmail')?.value?.trim() || '';
+        const phone = document.getElementById('contactPhone')?.value?.trim() || '';
+        const subject = document.getElementById('contactSubject')?.value?.trim() || '';
+        const message = document.getElementById('contactMessage')?.value?.trim() || '';
+
+        /*Validation*/
+        const errors = [];
+
+        if(!name || name.length < 2) errors.push('Please enter a valid name (minimum 2 characters).');
+        if(!email || !isValidEmail(email)) errors.push('Please enter a valid email address.');
+        if(!phone || phone.length < 10) errors.push('Please enter a valid phone number (minimum 10 digits).');
+        if(!subject) errors.push('Please select a subject.');
+        if(!message || message.length < 10) errors.push('Please enter a message (minimum 10 characters).');
+
+        const errorContainer = document.getElementById('contactErrors') || createErrorContainer('contactErrors');
+
+        if(errors.length > 0){
+            errorContainer.innerHTML = errors.map(err => `<div style="color:#ff4444;padding:8px;margin:5px 0;background:#ffe6e6;border-radius:5px;"> ${err}</div>`
+                ).join('');
+
+                errorContainer.style.display = 'block';
+                return;
+        }
+
+        errorContainer.style.display = 'none';
+
+        /*Compile email*/
+        const emailBody = `
+        Name: ${name}
+        Email: ${email}
+        Phone: ${phone}
+        Subject: ${subject}
+        Message: ${message}`;
+
+        /*Create mailto link*/
+        const mailtoLink = `mailto: mahoHair@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+
+        /*Show success message with email link*/
+        const responseContainer = document.getElementById('contactResponse') || createResponseContainer('contactResponse');
+        responseContainer.innerHTML = `
+                <div style="background:#c1dbe8;padding:20px;border-radius:10px;color:#43302e;margin-top:15px;animation:fadeIn 0.5s ease;">
+                    <h3 style="font-family:'Playfair Display',serif;margin-bottom:10px;"> Message Ready!</h3>
+                    <p>Thank you, ${name}! Your message has been compiled.</p>
+                    <p style="margin:15px 0;">
+                        <a href="${mailtoLink}" style="display:inline-block;padding:12px 30px;background:#43302e;color:#fff1b5;text-decoration:none;border-radius:30px;transition:all 0.3s ease;"
+                           onmouseenter="this.style.background='#c1dbe8';this.style.color='#43302e';"
+                           onmouseleave="this.style.background='#43302e';this.style.color='#fff1b5';">
+                             Open Email Client
+                        </a>
+                    </p>
+                    <p style="font-size:0.9rem;">Click the button above to send your message via your default email client.</p>
+                    <button onclick="this.parentElement.style.display='none'" style="margin-top:15px;padding:8px 20px;border:none;border-radius:20px;background:#43302e;color:#fff1b5;cursor:pointer;">
+                        Close
+                    </button>
+                </div>
+            `;
+
+            responseContainer.style.display = 'block';
+
+            contactForm.reset();
+    });
+  }
+
+  /*UTILIY FUNCTIONS*/
+
+  function isValidEmail(email){
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  }
+
+  function createErrorContainer(id = 'formError'){
+    const container = document.createElement('div');
+    container.id = id;
+    container.style.display = 'none';
+    container.style.margin = '10px 0';
+
+    const form =  document.querySelector('.enquiry-form, form');
+    if(form){
+        form.insertBefore(container, form.querySelector('.submit-btn, .btn'));
+    }
+    return container;
+  }
+
+  function createResponseContainer(id = 'enquiryResponse'){
+    const container = document.createElement('div');
+
+    container.id = id;
+    container.style.display = 'none';
+    container.style.margin = '10px 0';
+
+    const form = document.querySelector('.enquiry-form, form');
+    if(form){
+        form.insertBefore(container, form.querySelector('.submit-btn, .btn'))
+    }
+
+    return container;
+  }
+
+  /*SCROLL ANIMATIONS */
+  function initScrollAnimation(){
+    const serviceItems = document.querySelectorAll('.service-item');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+
+    },{
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    
+    });
+
+    serviceItems.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(30px)';
+        item.style.transition = 'all 0.6s ease ${index * 0.1}s';
+        observer.observe(item);
+    });
+  }
+
+  /*MOBILE MENU TOGGLE */
+
+  function initMobileMenu(){
+    /*Check if mobile */
+    if(window.innerWidth <= 767){
+        const header = document.querySelector('headeer');
+        const navLinks = document.querySelector('.nav-links');
+        if(header && navLinks && !document.getElementById('menu-toggle')){
+            const toggle = document.createElement('button');
+            toggle.id = 'menu-toggle';
+            toggle.innerHTML = '☰';
+            toggle.style.background = 'transparent';
+            toggle.style.border = '2px solid #fff1b5'
+            toggle.style.color = ' #fff1b5';
+            toggle.style.fontSize = '1.5rem';
+            toggle.style.padding = '5px 15px';
+            toggle.style.borderRadius = '5px';
+            toggle.style.cursor = 'pointer';
+            toggle.style.display = 'none';
+
+
+            /*Show toggle on mobile */
+            if(window.innerWidth <= 767){
+                toggle.style.display = 'block';
+            }
+
+            toggle.addEventListener('click', function(){
+                if(navLinks.style.display === 'none' || navLinks.style.display === ''){
+                    nsvLinks.style.display = 'grid';
+                    this.innerHTML = '✕'
+                }else{
+                    navLinks.style.display = 'none';
+                    this.innerHTML = '☰';
+                }
+            });
+
+            /*Insert toggle before nav-links */
+            header.insertBefore(toggle, navLinks);
+
+            /*Handle window resize */
+            window.addEventListener('resize', function(){
+                if(window.innerWidth <= 767){
+                    toggle.style.display = 'block';
+                    if(!toggle.classList.contains('active')){
+                        navLinks.style.display = 'none';
+                    }
+                }else{
+                    toggle.style.display = 'none';
+                    navLinks.style.display = 'flex';
+                }
+            });
+        }
+    }
+  }
+
+  /*INITIALIZE ALL FEATURES */
+  /*Check which page we are on */
+  const currentPage = window.location.pathname.spplit('/').pop() || 'index.html';
+
+  /*Initialize common features */
+  initLightbox();
+  initSearch();
+  loadDynamicContent();
+  initScrollAnimation();
+  initMobileMenu();
+
+  /*Page-specific features */
+  if(currentPage === 'service.html' || currentPage === 'service.html'){
+    initAccordion();
+    initTabs();
+  }
+
+  if (currentPage === 'enquiry.html'){
+    initEnquiryForm();
+  }
+
+  if(currentPage === 'contact_us.html' || currentPage === 'contact.html'){
+    initContactForm();
+  }
+
+  console.log('Mahogany Hair Salon - All features initialized successfully!');
   
-}
+};
