@@ -15,8 +15,8 @@ body {
   color: #43302e;
 }
 
-.font{
-  font-weight:bold;
+.font {
+  font-weight: bold;
 }
 
 .products-img {
@@ -27,7 +27,6 @@ body {
 .products-img:hover {
   transform: scale(1.05);
   box-shadow: 0 5px 15px rgba(218, 165, 32, 1);
-
 }
 
 h1 {
@@ -143,6 +142,54 @@ header {
   background-color: rgba(193, 219, 232, 0.1);
 }
 
+/*HAMBURGER MENU STYLES*/
+/*Hamburger Toggle Button*/
+.hamburger-toggle {
+  display: none;
+  background: transparent;
+  border: 2px solid #fff1b5;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.hamburger-toggle:hover {
+  background: rgba(255, 241, 181, 0.1);
+  border-color: #c1dbe8;
+}
+
+/*Hamburger Icon - Three lines*/
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 25px;
+}
+
+.hamburger-icon span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #fff1b5;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/*Animation when menu is open (X shape)*/
+.hamburger-toggle.active .hamburger-icon span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 6px);
+}
+
+.hamburger-toggle.active .hamburger-icon span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-toggle.active .hamburger-icon span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -6px);
+}
+
 /* Welcome message */
 .hero {
   color: #43302e;
@@ -224,25 +271,24 @@ header {
   border: 2px solid #43302e;
 }
 
-.btn-prod{
-display: inline-block;
-background: #43302e;
-color:#fff1b5;
-font-family: "Poppins", sans-serif;
-font-size: 0.9rem;
-font-weight: 100;
-padding: 6px 6px;
-border: none;
-border-radius: 30px;
-cursor:pointer;
-text-decoration: none;
-text-align: center;
-transition: all 0.3s ease;
-letter-spacing: 0.7px;
-
+.btn-prod {
+  display: inline-block;
+  background: #43302e;
+  color: #fff1b5;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 100;
+  padding: 6px 6px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease;
+  letter-spacing: 0.7px;
 }
 
-.btn-prod:hover{
+.btn-prod:hover {
   background: #c1dbe8;
   color: #43302e;
   font-size: 0.9rem;
@@ -251,7 +297,7 @@ letter-spacing: 0.7px;
   box-shadow: 0 5px 15px rgba(67, 48, 46, 0.3);
 }
 
-.btn-prod:focus{
+.btn-prod:focus {
   outline: 2px solid #c1dbe8;
   outline-offset: 2px;
 }
@@ -422,29 +468,29 @@ letter-spacing: 0.7px;
   transition: all 0.9s ease;
 }
 
-.img-hero:hover{
+.img-hero:hover {
   transform: scale(1.05);
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(24, 18, 6, 0.903);
 }
 
-    .services-grid {
-      display: grid;
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
 
-    .service-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
+.service-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 
-    .service-item img {
-        max-width: 70%;
-        height: auto;
-    }
+.service-item img {
+  max-width: 70%;
+  height: auto;
+}
 /*RESPONSIVE MEDIA QUERIES*/
 
 /* Tablet Breakpoint */
@@ -459,6 +505,66 @@ letter-spacing: 0.7px;
 
   body {
     font-size: 0.95rem;
+  }
+
+  /*Tablet hamburger*/
+
+  /*show hamburger button*/
+  .hamburger-toggle {
+    display: block;
+  }
+
+  /*Header layout*/
+  header {
+    display: flex;
+    flex-direction: row;
+    align-items: space-between;
+    padding: 0.5rem 1.5rem;
+    position: relative;
+  }
+
+  /*Navigation links - hidden by default on tablet*/
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #43302e;
+    padding: 1rem 1.5rem;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    gap: 0.5rem;
+    z-index: 99;
+    width: 100%;
+  }
+
+  /* Show navigation when active */
+  .nav-links.active {
+    display: flex;
+  }
+
+  /* Navigation links styling on mobile */
+  .nav-links a {
+    display: block;
+    padding: 12px 15px;
+    width: 100%;
+    text-align: center;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    border-bottom: none;
+  }
+
+  .nav-links a:hover {
+    background: rgba(193, 219, 232, 0.1);
+    border-bottom: none;
+  }
+
+  .nav-links a.active {
+    background: rgba(193, 219, 232, 0.2);
+    border-bottom: none;
   }
 
   /* Footer - 2 columns on tablet */
@@ -485,6 +591,25 @@ letter-spacing: 0.7px;
 
 /* Mobile Breakpoint */
 @media screen and (max-width: 767px) {
+  /*Hamburger*/
+  header {
+    padding: 0.5rem 1rem;
+  }
+
+  #logo-name {
+    font-size: 0.9rem;
+  }
+
+  #logo-image {
+    width: 50px;
+    height: 50px;
+  }
+
+  .nav-links a {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+
   h1 {
     font-size: 1.75rem;
   }
@@ -557,22 +682,22 @@ letter-spacing: 0.7px;
     transition: all 2s ease;
   }
 
-      .services-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 
-    .service-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
+  .service-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
-    .service-item img {
-        max-width: 70%;
-        height: auto;
-    }
+  .service-item img {
+    max-width: 70%;
+    height: auto;
+  }
 
   /* Footer: Single column on mobile - STACKED VERTICALLY */
   .footer-container {
@@ -622,5 +747,22 @@ letter-spacing: 0.7px;
   .enquiry-form {
     padding: 1.5rem;
     margin: 0 1rem;
+  }
+}
+
+/* Large Screens - Hide hamburger */
+@media screen and (min-width: 1024px) {
+  .hamburger-toggle {
+    display: none !important;
+  }
+
+  .nav-links {
+    display: flex !important;
+    flex-direction: row;
+    position: static;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+    width: auto;
   }
 }

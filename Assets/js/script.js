@@ -1,175 +1,216 @@
-/*GALLERY LIGHTBOX*/
+// MAHOGANY HAIR SALON - COMPLETE JAVASCRIPT
 
-function initAccordion() {
-  const serviceItems = document.querySelectorAll(".service-item");
+document.addEventListener("DOMContentLoaded", function () {
+  // HAMBURGER MENU TOGGLE
 
-  serviceItems.forEach((item, index) => {
-    /*Create accordion toggle button*/
-    const img = item.querySelector("img");
-    const priceBtn = item.querySelector("btn-prod");
-    const description = document.createElement("p");
-    description.className = "service-description";
-    description.style.display = "none";
-    description.style.marginTop = "10px";
-    description.style.padding = "10px";
-    description.style.background = "#fff1b5";
-    description.style.borderRadius = "8px";
-    description.style.color = "#43302e";
+  function initHamburgerMenu() {
+    const hamburgerToggle = document.getElementById("hamburgerToggle");
+    const navLinks = document.getElementById("navLinks");
+    const header = document.querySelector("header");
 
-    /*Add diffferent descriptions based on services*/
-    const serviceName = item.querySelector("p")?.textContent || "";
-    const description = {
-      "Straight back":
-        "Classic straight back braids, neat and long-lasting style.",
-      "Patewo braids": "Stylish Patewo braids with a modern twist.",
-      "Short Kinky": "Voluminous long kinky hair for aa bold statement.",
-      "Short Kinky": "Playful short kinky style, perfect for everyday wear.",
-      "Long curls": "Elegant long curls with beautiful bounce and movement.",
-      "Side part": "sophisticated side part style for glamorous look.",
-      "Short bob": "Classic short bob cut, timeless and versatile.",
-      "Colored bob": "Vibrant colored bob to make a statement.",
-      "Medium almond": "Elegant medium almond-shaped nails.",
-      "Long almond": "Dramatic long almond nails for a sophisticated look.",
-      "Short almond model":
-        "Natural short almond style, perfect for daily wear.",
-      "Short almond": "Classic short almond nails.",
-      "Medium square": "Modern medium square nails.",
-      "Long square": "Bold long square nails.",
-      Fullbeat: "Full coverage glamour makeup look.",
-      "Matt glow": "Matte finish with a subtle glow.",
-      "Natural glam": "Natural-looking glamorous makeup.",
-    };
+    if (hamburgerToggle && navLinks) {
+      hamburgerToggle.addEventListener("click", function () {
+        this.classList.toggle("active");
+        navLinks.classList.toggle("active");
+      });
 
-    description.textContent =
-      description[serviceName] || "Professional service with quality results.";
+      // Close menu when a link is clicked
+      const links = navLinks.querySelectorAll("a");
+      links.forEach((link) => {
+        link.addEventListener("click", function () {
+          if (window.innerWidth <= 1023) {
+            hamburgerToggle.classList.remove("active");
+            navLinks.classList.remove("active");
+          }
+        });
+      });
 
-    /*Insert description after the price button*/
-    item.appendChild(description);
-
-    /*Add click event to toggle description*/
-    priceBtn.addEventListener("click", function (e) {
-      e.stopPropagation();
-
-      /*Hide all other description*/
-      document.querySelectorAll(".service-descripion").forEach((desc) => {
-        if (desc !== description) {
-          desc.style.display = "none";
+      // Close menu when clicking outside
+      document.addEventListener("click", function (e) {
+        if (window.innerWidth <= 1023 && header) {
+          const isClickInside = header.contains(e.target);
+          if (!isClickInside && navLinks.classList.contains("active")) {
+            hamburgerToggle.classList.remove("active");
+            navLinks.classList.remove("active");
+          }
         }
       });
-
-      /*Toggle current description*/
-      if (
-        description.style.display === "none" ||
-        description.style.display === ""
-      ) {
-        description.style.display = "block";
-        priceBtn.textContent = "Hide Details";
-      } else {
-        description.style.display = "none";
-        priceBtn.textContent =
-          this.textContent.replace("Hide Details", "").trim() || "View Details";
-      }
-    });
-  });
-}
-
-/*MODAL FOR SERVICE IMAGES (Lighhtbox)*/
-function initLightbox() {
-  /*Create modal overlay*/
-  const modal = document.createElement("div");
-  modal.id = "lightbox-modal";
-  modal.style.display = "none";
-  modal.style.position = "fixed";
-  modal.style.top = "0";
-  modal.style.left = "0";
-  modal.style.width = "100%";
-  modal.style.height = "100%";
-  modal.style.backgroundColor = "rgba(0,0,0,0.9)";
-  modal.style.justifyContent = "center";
-  modal.style.alignItems = "center";
-  modal.style.padding = "20px";
-
-  /*close button*/
-  const closeBtn = document.createElement("span");
-  closeBtn.innerHTML = "&times;";
-  closeBtn.style.position = "absolute";
-  closeBtn.style.top = "20%";
-  closeBtn.style.color = "#fff1b5";
-  closeBtn.style.fontSize = "40px";
-  closeBtn.style.cursor = "pointer";
-  closeBtn.style.zIndex = "1001";
-
-  closeBtn.addEventListener("mouseenter", function () {
-    this.style.color = "#c1dbe8";
-    this.style.transform = "scale(1.2)";
-  });
-
-  closeBtn.addEventListener("mouseleave", function () {
-    this.style.color = "#fff1b5";
-    this.style.transform = "scale(1)";
-  });
-
-  /*Modal image*/
-  const modalImg = document.createElement("img");
-  modalImg.id = "modal-image";
-  modalImg.style.maxWidth = "90%";
-  modalImg.style.maxHeight = "90%";
-  modalImg.style.borderRadius = "0 0 50px rgba(0, 0, 0,  0.5)";
-  modalImg.style.objectFit = "contain";
-
-  /*Modal caption*/
-  const caption = document.createElement("p");
-  caption.id = "modal-caption";
-  caption.style.color = "#fff1b5";
-  caption.style.textAlign = "center";
-  caption.style.marginTop = "20px";
-  caption.style.fontSize = "1.2rem";
-  caption.style.fontFamily = "Playfair Display, serif";
-
-  /*Assemble modal*/
-  modal.appendChild(closeBtn);
-  modal.appendChild(modalImg);
-  modal.appendChild(caption);
-  document.body.appendChild(modal);
-
-  /*Click event for images*/
-  document
-    .querySelectorAll(".service-item img, .products-img")
-    .forEach((img) => {
-      img.style.cursor = "pointer";
-      img.addEventListener("click", function () {
-        modal.style.display = "flex";
-        modalImg.src = this.src;
-        caption.textContent = this.alt || "Mahogany Hair Salon Service";
-
-        /*Prevent body roll*/
-        document.body.style.overflow = "hidden";
-      });
-    });
-
-  /*Close modal functions*/
-  function closeModal() {
-    modal.style.display = "none";
-    document.body.style.overflow = "auto";
+    }
   }
 
-  closeBtn.addEventListener("click", closeModal);
-  modal.addEventListener("click", function (e) {
-    if (e.target === this) {
-      closeModal();
-    }
-  });
+  // ==========================================
+  // GALLERY LIGHTBOX
+  // ==========================================
+  function initLightbox() {
+    const modal = document.createElement("div");
+    modal.id = "lightbox-modal";
+    modal.style.display = "none";
+    modal.style.position = "fixed";
+    modal.style.top = "0";
+    modal.style.left = "0";
+    modal.style.width = "100%";
+    modal.style.height = "100%";
+    modal.style.backgroundColor = "rgba(0,0,0,0.9)";
+    modal.style.zIndex = "1000";
+    modal.style.justifyContent = "center";
+    modal.style.alignItems = "center";
+    modal.style.padding = "20px";
 
-  /*Keyboard escape to close*/
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && modal.style.display === "flex") {
-      closeModal();
-    }
-  });
+    // Close button
+    const closeBtn = document.createElement("span");
+    closeBtn.innerHTML = "&times;";
+    closeBtn.style.position = "absolute";
+    closeBtn.style.top = "20px";
+    closeBtn.style.right = "40px";
+    closeBtn.style.color = "#fff1b5";
+    closeBtn.style.fontSize = "40px";
+    closeBtn.style.fontWeight = "bold";
+    closeBtn.style.cursor = "pointer";
+    closeBtn.style.zIndex = "1001";
+    closeBtn.style.transition = "0.3s";
 
-  /*TAB FUNCTIONALITY FOR SERVICES*/
+    closeBtn.addEventListener("mouseenter", function () {
+      this.style.color = "#c1dbe8";
+      this.style.transform = "scale(1.2)";
+    });
+    closeBtn.addEventListener("mouseleave", function () {
+      this.style.color = "#fff1b5";
+      this.style.transform = "scale(1)";
+    });
+
+    // Modal image
+    const modalImg = document.createElement("img");
+    modalImg.id = "modal-image";
+    modalImg.style.maxWidth = "90%";
+    modalImg.style.maxHeight = "90%";
+    modalImg.style.borderRadius = "10px";
+    modalImg.style.boxShadow = "0 0 50px rgba(0,0,0,0.5)";
+    modalImg.style.objectFit = "contain";
+
+    // Modal caption
+    const caption = document.createElement("p");
+    caption.id = "modal-caption";
+    caption.style.color = "#fff1b5";
+    caption.style.textAlign = "center";
+    caption.style.marginTop = "20px";
+    caption.style.fontSize = "1.2rem";
+    caption.style.fontFamily = "Playfair Display, serif";
+
+    modal.appendChild(closeBtn);
+    modal.appendChild(modalImg);
+    modal.appendChild(caption);
+    document.body.appendChild(modal);
+
+    // Click event for images
+    document
+      .querySelectorAll(".service-item img, .products-img")
+      .forEach((img) => {
+        img.style.cursor = "pointer";
+        img.addEventListener("click", function () {
+          modal.style.display = "flex";
+          modalImg.src = this.src;
+          caption.textContent = this.alt || "Mahogany Hair Salon Service";
+          document.body.style.overflow = "hidden";
+        });
+      });
+
+    function closeModal() {
+      modal.style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+
+    closeBtn.addEventListener("click", closeModal);
+    modal.addEventListener("click", function (e) {
+      if (e.target === this) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && modal.style.display === "flex") {
+        closeModal();
+      }
+    });
+  }
+
+  // ACCORDION
+
+  function initAccordion() {
+    const serviceItems = document.querySelectorAll(".service-item");
+
+    serviceItems.forEach((item) => {
+      const priceBtn = item.querySelector(".btn-prod");
+      const description = document.createElement("p");
+      description.className = "service-description";
+      description.style.display = "none";
+      description.style.marginTop = "10px";
+      description.style.padding = "10px";
+      description.style.background = "#fff1b5";
+      description.style.borderRadius = "8px";
+      description.style.color = "#43302e";
+
+      // Add different descriptions based on services
+      const serviceName = item.querySelector("p")?.textContent || "";
+      const descriptions = {
+        "Straight back":
+          "Classic straight back braids, neat and long-lasting style.",
+        "Patewo braids": "Stylish Patewo braids with a modern twist.",
+        "Short knotless braids":
+          "Comfortable knotless braids in a chic short length.",
+        "Long Kinky": "Voluminous long kinky hair for a bold statement.",
+        "Short kinky": "Playful short kinky style, perfect for everyday wear.",
+        "Long curls": "Elegant long curls with beautiful bounce and movement.",
+        "Side part": "Sophisticated side part style for a glamorous look.",
+        "Short bob": "Classic short bob cut, timeless and versatile.",
+        "Colored bob": "Vibrant colored bob to make a statement.",
+        "Medium almond": "Elegant medium almond-shaped nails.",
+        "Long almond": "Dramatic long almond nails for a sophisticated look.",
+        "Short almond model":
+          "Natural short almond style, perfect for daily wear.",
+        "Short almond": "Classic short almond nails.",
+        "Medium square": "Modern medium square nails.",
+        "Long square": "Bold long square nails.",
+        Fullbeat: "Full coverage glamour makeup look.",
+        "Matt glow": "Matte finish with a subtle glow.",
+        "Natural glam": "Natural-looking glamorous makeup.",
+      };
+
+      description.textContent =
+        descriptions[serviceName] ||
+        "Professional service with quality results.";
+      item.appendChild(description);
+
+      if (priceBtn) {
+        priceBtn.addEventListener("click", function (e) {
+          e.stopPropagation();
+
+          // Hide all other descriptions
+          document.querySelectorAll(".service-description").forEach((desc) => {
+            if (desc !== description) {
+              desc.style.display = "none";
+            }
+          });
+
+          // Toggle current description
+          if (
+            description.style.display === "none" ||
+            description.style.display === ""
+          ) {
+            description.style.display = "block";
+            this.textContent = "Hide Details";
+          } else {
+            description.style.display = "none";
+            const price = this.getAttribute("data-price") || "";
+            this.textContent = price ? `R${price}` : "View Details";
+          }
+        });
+      }
+    });
+  }
+
+  // TAB FUNCTIONALITY FOR SERVICES
+
   function initTabs() {
-    /*Create tabs container*/
     const heroSections = document.querySelectorAll(".hero");
     if (heroSections.length > 1) {
       const tabsContainer = document.createElement("div");
@@ -187,17 +228,7 @@ function initLightbox() {
         "Nail Art",
         "Makeup",
       ];
-      const categoryData = {
-        All: { images: document.querySelectorAll(".services-grid") },
-        Braiding: { images: document.querySelectorAll(".services-grid")[0] },
-        "Wig Installation": {
-          images: document.querySelectorAll(".services-grid")[1],
-        },
-        "Nail Art": { images: document.querySelectorAll(".services-grid")[2] },
-        Makeup: { images: document.querySelectorAll(".services-grid")[3] },
-      };
 
-      /*Create tabs buttons*/
       serviceCategories.forEach((category) => {
         const tabBtn = document.createElement("button");
         tabBtn.textContent = category;
@@ -207,6 +238,7 @@ function initLightbox() {
         tabBtn.style.borderRadius = "30px";
         tabBtn.style.background = "transparent";
         tabBtn.style.color = "#43302e";
+        tabBtn.style.cursor = "pointer";
         tabBtn.style.fontFamily = "Poppins, sans-serif";
         tabBtn.style.fontWeight = "500";
         tabBtn.style.transition = "all 0.3s ease";
@@ -231,7 +263,6 @@ function initLightbox() {
         });
 
         tabBtn.addEventListener("click", function () {
-          /*Reset all tabs*/
           document.querySelectorAll(".tab-button").forEach((btn) => {
             btn.style.background = "transparent";
             btn.style.color = "#43302e";
@@ -239,7 +270,6 @@ function initLightbox() {
           this.style.background = "#43302e";
           this.style.color = "#fff1b5";
 
-          /*Show/hide service grids*/
           const grids = document.querySelectorAll(".services-grid");
           grids.forEach((grid) => (grid.style.display = "none"));
 
@@ -259,10 +289,9 @@ function initLightbox() {
           }
         });
 
-        tabsContainer.appendChild(tabsBtn);
+        tabsContainer.appendChild(tabBtn);
       });
 
-      /*Insert tabs after the first hero section*/
       const firstHero = document.querySelector(".hero");
       if (firstHero) {
         firstHero.parentNode.insertBefore(tabsContainer, firstHero.nextSibling);
@@ -270,10 +299,9 @@ function initLightbox() {
     }
   }
 
-  /*DYNAMIC CONTENT & SEARCH*/
+  // DYNAMIC CONTENT & SEARCH
 
   function initSearch() {
-    /*Create search bar*/
     const searchContainer = document.createElement("div");
     searchContainer.className = "search-container";
     searchContainer.style.display = "flex";
@@ -330,13 +358,11 @@ function initLightbox() {
     searchContainer.appendChild(searchInput);
     searchContainer.appendChild(searchBtn);
 
-    /*Insert serach after hero*/
     const hero = document.querySelector(".hero");
     if (hero) {
       hero.parentNode.insertBefore(searchContainer, hero.nextSibling);
     }
 
-    /*Search functionality*/
     function performSearch(query) {
       const serviceItems = document.querySelectorAll(".service-item");
       let found = false;
@@ -359,8 +385,7 @@ function initLightbox() {
         }
       });
 
-      /*Show/hide grids*/
-      const grids = document.querySelectorAll(".service-grid");
+      const grids = document.querySelectorAll(".services-grid");
       grids.forEach((grid) => {
         const visibleItems = grid.querySelectorAll(
           '.service-item[style*="display: flex"]',
@@ -372,26 +397,24 @@ function initLightbox() {
         }
       });
 
-      /*Show no result message*/
       let noResults = document.getElementById("no-results");
       if (!found && query.trim() !== "") {
         if (!noResults) {
           noResults = document.createElement("p");
           noResults.id = "no-results";
           noResults.textContent =
-            "No services forund. Try a different search term.";
+            "No services found. Try a different search term.";
           noResults.style.textAlign = "center";
           noResults.style.padding = "40px";
           noResults.style.fontSize = "1.2rem";
           noResults.style.color = "#43302e";
           noResults.style.fontFamily = "Playfair Display, serif";
           const main = document.querySelector("main");
-          if (main) main.appendChild(noResult);
+          if (main) main.appendChild(noResults);
         }
-
         noResults.style.display = "block";
       } else if (noResults) {
-        noResults.style.dislay = "none";
+        noResults.style.display = "none";
       }
     }
 
@@ -399,7 +422,7 @@ function initLightbox() {
       performSearch(this.value);
     });
 
-    searchInput.addEventListener("click", function () {
+    searchBtn.addEventListener("click", function () {
       performSearch(searchInput.value);
     });
 
@@ -410,13 +433,11 @@ function initLightbox() {
     });
   }
 
-  /*DYNAMIC CONTENT LOADING*/
+  // DYNAMIC CONTENT LOADING
 
   function loadDynamicContent() {
-    /*Simulate loading additional content dynamically*/
     const serviceGrids = document.querySelectorAll(".services-grid");
 
-    /*Add "Load More" button*/
     const loadMoreBtn = document.createElement("button");
     loadMoreBtn.textContent = "Load More Services";
     loadMoreBtn.className = "btn";
@@ -424,33 +445,29 @@ function initLightbox() {
     loadMoreBtn.style.margin = "30px auto";
 
     loadMoreBtn.addEventListener("click", function () {
-      /*Simulate loading new content*/
       const newItem = document.createElement("div");
       newItem.className = "service-item";
       newItem.style.animation = "fadeIn 0.5s ease";
 
-      /*Add fade-in animation*/
       const style = document.createElement("style");
       style.textContent = `
-                @keyframes fadeIn{
-                from{ opacity: 0; transform: translateY(20px); }
-                to { opacity: 1; transform: translateY(0); }
-            }`;
-
+                @keyframes fadeIn {
+                    from { opacity: 0; transform: translateY(20px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+            `;
       document.head.appendChild(style);
 
       newItem.innerHTML = `
-            <img src="..Assets/Images/braided_back.jpg" alt="new-service" width="200" height="250" style="border-radius:10px;box-shadow:0 5px 15px black;transition:all 0.9s ease;">
-            
-            <p>Premium Style</p>
+                <img src="../Assets/Images/braided_back.jpg" alt="new-service" width="200" height="250" style="border-radius:10px;box-shadow:0 5px 15px black;transition:all 0.9s ease;">
+                <p>Premium Style</p>
                 <button class="btn-prod">R450</button>
-                `;
+            `;
 
-      /*Add to last grid*/
       const lastGrid = serviceGrids[serviceGrids.length - 1];
       if (lastGrid) {
         lastGrid.appendChild(newItem);
-        this.textContent = "More ervices Loaded!";
+        this.textContent = "More Services Loaded!";
         this.disabled = true;
         this.style.opacity = "0.5";
         this.style.cursor = "not-allowed";
@@ -459,71 +476,62 @@ function initLightbox() {
 
     const main = document.querySelector("main");
     if (main) {
-      /*Insert load more button before footer*/
-      const footer = document.querySelector("main");
+      const footer = document.querySelector("footer");
       if (footer) {
         main.insertBefore(loadMoreBtn, footer);
       }
     }
   }
 
-  /*FORM FUNCTIONALITY (enquiry.html)*/
+  // ENQUIRY FORM
 
   function initEnquiryForm() {
-    const enquiryForm = document.getElementById("enquiry-form");
+    const enquiryForm = document.getElementById("enquiryForm");
     if (!enquiryForm) return;
 
     enquiryForm.addEventListener("submit", function (e) {
       e.preventDefault();
 
-      /*Get form values*/
-      const name = document.getElementById("name")?.value.trim() || "";
-      const email = document.getElementById("email")?.value.trim() || "";
-      const phone = document.getElementById("phone")?.value.trim() || "";
-      const service = document.getElementById("service")?.value.trim() || "";
-      const message = document.getElementById("message")?.value.trim() || "";
+      const name = document.getElementById("name")?.value?.trim() || "";
+      const email = document.getElementById("email")?.value?.trim() || "";
+      const phone = document.getElementById("phone")?.value?.trim() || "";
+      const service = document.getElementById("service")?.value || "";
+      const message = document.getElementById("message")?.value?.trim() || "";
 
-      /*Validation*/
       const errors = [];
 
       if (!name || name.length < 2) {
         errors.push("Please enter a valid name (minimum 2 characters).");
       }
-
       if (!email || !isValidEmail(email)) {
         errors.push("Please enter a valid email address.");
       }
-
       if (!phone || phone.length < 10) {
         errors.push("Please enter a valid phone number (minimum 10 digits).");
       }
-
       if (!service) {
         errors.push("Please select a service.");
       }
-
       if (!message || message.length < 10) {
         errors.push("Please enter a message (minimum 10 characters).");
       }
 
-      /*Show errors or process*/
       const errorContainer =
         document.getElementById("formErrors") || createErrorContainer();
 
-      if (errors.lentgh > 0) {
+      if (errors.length > 0) {
         errorContainer.innerHTML = errors
           .map(
             (err) =>
-              `<div style="color:#fff1b5; pading: 8px; margin: 5px 0; background: #fff1b5; border-radius: 5px;"> ${err}</div>`,
+              `<div style="color:#ff4444;padding:8px;margin:5px 0;background:#ffe6e6;border-radius:5px;"> ${err}</div>`,
           )
           .join("");
-        erroContainer.style.dsplay = "block";
+        errorContainer.style.display = "block";
         return;
       }
 
       errorContainer.style.display = "none";
 
-      /*Process enquiry - shw response*/
       const responseContainer =
         document.getElementById("enquiryResponse") || createResponseContainer();
 
@@ -548,12 +556,13 @@ function initLightbox() {
         "natural-glam": 450,
       };
 
-      const price = servicePices[service] || 0;
+      const price = servicePrices[service] || 0;
       const serviceName =
         document.querySelector(`#service option[value="${service}"]`)
           ?.textContent || service;
 
-      responseContainer.innerHTML = `<div style="background:#c1dbe8;padding:20px;border-radius:10px;color:#43302e;margin-top:15px;animation:fadeIn 0.5s ease;">
+      responseContainer.innerHTML = `
+                <div style="background:#c1dbe8;padding:20px;border-radius:10px;color:#43302e;margin-top:15px;animation:fadeIn 0.5s ease;">
                     <h3 style="font-family:'Playfair Display',serif;margin-bottom:10px;"> Enquiry Received!</h3>
                     <p><strong>Thank you, ${name}!</strong></p>
                     <p>Service: ${serviceName}</p>
@@ -563,65 +572,76 @@ function initLightbox() {
                     <button onclick="this.parentElement.style.display='none'" style="margin-top:15px;padding:8px 20px;border:none;border-radius:20px;background:#43302e;color:#fff1b5;cursor:pointer;">
                         Close
                     </button>
-                </div>`;
-
+                </div>
+            `;
       responseContainer.style.display = "block";
-
-      /*Reset form*/
-      enquirForm.reset();
+      enquiryForm.reset();
     });
   }
 
-  /*CONTACT FORM (contact_us.html)*/
+  // CONTACT FORM
 
-  function initContactForm(){
-    const contactForm = document.getElementById('contactform');
-    if(!contactForm) return;
+  function initContactForm() {
+    const contactForm = document.getElementById("contactForm");
+    if (!contactForm) return;
 
-    contact.addEventListener('submit', function(e){
-        e.preventDefault();
-        
-        const name = document.getElementById('contactName')?.value?.trim() || '';
-        const email = document.getElementById('contactEmail')?.value?.trim() || '';
-        const phone = document.getElementById('contactPhone')?.value?.trim() || '';
-        const subject = document.getElementById('contactSubject')?.value?.trim() || '';
-        const message = document.getElementById('contactMessage')?.value?.trim() || '';
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-        /*Validation*/
-        const errors = [];
+      const name = document.getElementById("contactName")?.value?.trim() || "";
+      const email =
+        document.getElementById("contactEmail")?.value?.trim() || "";
+      const phone =
+        document.getElementById("contactPhone")?.value?.trim() || "";
+      const subject = document.getElementById("contactSubject")?.value || "";
+      const message =
+        document.getElementById("contactMessage")?.value?.trim() || "";
 
-        if(!name || name.length < 2) errors.push('Please enter a valid name (minimum 2 characters).');
-        if(!email || !isValidEmail(email)) errors.push('Please enter a valid email address.');
-        if(!phone || phone.length < 10) errors.push('Please enter a valid phone number (minimum 10 digits).');
-        if(!subject) errors.push('Please select a subject.');
-        if(!message || message.length < 10) errors.push('Please enter a message (minimum 10 characters).');
+      const errors = [];
 
-        const errorContainer = document.getElementById('contactErrors') || createErrorContainer('contactErrors');
+      if (!name || name.length < 2)
+        errors.push("Please enter a valid name (minimum 2 characters).");
+      if (!email || !isValidEmail(email))
+        errors.push("Please enter a valid email address.");
+      if (!phone || phone.length < 10)
+        errors.push("Please enter a valid phone number (minimum 10 digits).");
+      if (!subject) errors.push("Please select a subject.");
+      if (!message || message.length < 10)
+        errors.push("Please enter a message (minimum 10 characters).");
 
-        if(errors.length > 0){
-            errorContainer.innerHTML = errors.map(err => `<div style="color:#ff4444;padding:8px;margin:5px 0;background:#ffe6e6;border-radius:5px;"> ${err}</div>`
-                ).join('');
+      const errorContainer =
+        document.getElementById("contactErrors") ||
+        createErrorContainer("contactErrors");
 
-                errorContainer.style.display = 'block';
-                return;
-        }
+      if (errors.length > 0) {
+        errorContainer.innerHTML = errors
+          .map(
+            (err) =>
+              `<div style="color:#ff4444;padding:8px;margin:5px 0;background:#ffe6e6;border-radius:5px;">⚠️ ${err}</div>`,
+          )
+          .join("");
+        errorContainer.style.display = "block";
+        return;
+      }
 
-        errorContainer.style.display = 'none';
+      errorContainer.style.display = "none";
 
-        /*Compile email*/
-        const emailBody = `
-        Name: ${name}
-        Email: ${email}
-        Phone: ${phone}
-        Subject: ${subject}
-        Message: ${message}`;
+      const emailBody = `
+                Name: ${name}
+                Email: ${email}
+                Phone: ${phone}
+                Subject: ${subject}
+                
+                Message:
+                ${message}
+            `;
 
-        /*Create mailto link*/
-        const mailtoLink = `mailto: mahoHair@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+      const mailtoLink = `mailto:mahoHair@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
 
-        /*Show success message with email link*/
-        const responseContainer = document.getElementById('contactResponse') || createResponseContainer('contactResponse');
-        responseContainer.innerHTML = `
+      const responseContainer =
+        document.getElementById("contactResponse") ||
+        createResponseContainer("contactResponse");
+      responseContainer.innerHTML = `
                 <div style="background:#c1dbe8;padding:20px;border-radius:10px;color:#43302e;margin-top:15px;animation:fadeIn 0.5s ease;">
                     <h3 style="font-family:'Playfair Display',serif;margin-bottom:10px;"> Message Ready!</h3>
                     <p>Thank you, ${name}! Your message has been compiled.</p>
@@ -629,7 +649,7 @@ function initLightbox() {
                         <a href="${mailtoLink}" style="display:inline-block;padding:12px 30px;background:#43302e;color:#fff1b5;text-decoration:none;border-radius:30px;transition:all 0.3s ease;"
                            onmouseenter="this.style.background='#c1dbe8';this.style.color='#43302e';"
                            onmouseleave="this.style.background='#43302e';this.style.color='#fff1b5';">
-                             Open Email Client
+                            📧 Open Email Client
                         </a>
                     </p>
                     <p style="font-size:0.9rem;">Click the button above to send your message via your default email client.</p>
@@ -638,153 +658,97 @@ function initLightbox() {
                     </button>
                 </div>
             `;
-
-            responseContainer.style.display = 'block';
-
-            contactForm.reset();
+      responseContainer.style.display = "block";
+      contactForm.reset();
     });
   }
 
-  /*UTILIY FUNCTIONS*/
+  // UTILITY FUNCTIONS
 
-  function isValidEmail(email){
+  function isValidEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
   }
 
-  function createErrorContainer(id = 'formError'){
-    const container = document.createElement('div');
+  function createErrorContainer(id = "formErrors") {
+    const container = document.createElement("div");
     container.id = id;
-    container.style.display = 'none';
-    container.style.margin = '10px 0';
+    container.style.display = "none";
+    container.style.margin = "10px 0";
 
-    const form =  document.querySelector('.enquiry-form, form');
-    if(form){
-        form.insertBefore(container, form.querySelector('.submit-btn, .btn'));
+    const form = document.querySelector(".enquiry-form, form");
+    if (form) {
+      form.insertBefore(container, form.querySelector(".submit-btn, .btn"));
     }
     return container;
   }
 
-  function createResponseContainer(id = 'enquiryResponse'){
-    const container = document.createElement('div');
-
+  function createResponseContainer(id = "enquiryResponse") {
+    const container = document.createElement("div");
     container.id = id;
-    container.style.display = 'none';
-    container.style.margin = '10px 0';
+    container.style.display = "none";
+    container.style.margin = "10px 0";
 
-    const form = document.querySelector('.enquiry-form, form');
-    if(form){
-        form.insertBefore(container, form.querySelector('.submit-btn, .btn'))
+    const form = document.querySelector(".enquiry-form, form");
+    if (form) {
+      form.insertBefore(container, form.querySelector(".submit-btn, .btn"));
     }
-
     return container;
   }
 
-  /*SCROLL ANIMATIONS */
-  function initScrollAnimation(){
-    const serviceItems = document.querySelectorAll('.service-item');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if(entry.isIntersecting){
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
+  // ==========================================
+  // SCROLL ANIMATIONS
+  // ==========================================
+  function initScrollAnimations() {
+    const serviceItems = document.querySelectorAll(".service-item");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
         });
-
-    },{
+      },
+      {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    
-    });
+        rootMargin: "0px 0px -50px 0px",
+      },
+    );
 
     serviceItems.forEach((item, index) => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(30px)';
-        item.style.transition = 'all 0.6s ease ${index * 0.1}s';
-        observer.observe(item);
+      item.style.opacity = "0";
+      item.style.transform = "translateY(30px)";
+      item.style.transition = `all 0.6s ease ${index * 0.1}s`;
+      observer.observe(item);
     });
   }
 
-  /*MOBILE MENU TOGGLE */
+  // ==========================================
+  // INITIALIZE ALL FEATURES
+  // ==========================================
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
-  function initMobileMenu(){
-    /*Check if mobile */
-    if(window.innerWidth <= 767){
-        const header = document.querySelector('headeer');
-        const navLinks = document.querySelector('.nav-links');
-        if(header && navLinks && !document.getElementById('menu-toggle')){
-            const toggle = document.createElement('button');
-            toggle.id = 'menu-toggle';
-            toggle.innerHTML = '☰';
-            toggle.style.background = 'transparent';
-            toggle.style.border = '2px solid #fff1b5'
-            toggle.style.color = ' #fff1b5';
-            toggle.style.fontSize = '1.5rem';
-            toggle.style.padding = '5px 15px';
-            toggle.style.borderRadius = '5px';
-            toggle.style.cursor = 'pointer';
-            toggle.style.display = 'none';
-
-
-            /*Show toggle on mobile */
-            if(window.innerWidth <= 767){
-                toggle.style.display = 'block';
-            }
-
-            toggle.addEventListener('click', function(){
-                if(navLinks.style.display === 'none' || navLinks.style.display === ''){
-                    nsvLinks.style.display = 'grid';
-                    this.innerHTML = '✕'
-                }else{
-                    navLinks.style.display = 'none';
-                    this.innerHTML = '☰';
-                }
-            });
-
-            /*Insert toggle before nav-links */
-            header.insertBefore(toggle, navLinks);
-
-            /*Handle window resize */
-            window.addEventListener('resize', function(){
-                if(window.innerWidth <= 767){
-                    toggle.style.display = 'block';
-                    if(!toggle.classList.contains('active')){
-                        navLinks.style.display = 'none';
-                    }
-                }else{
-                    toggle.style.display = 'none';
-                    navLinks.style.display = 'flex';
-                }
-            });
-        }
-    }
-  }
-
-  /*INITIALIZE ALL FEATURES */
-  /*Check which page we are on */
-  const currentPage = window.location.pathname.spplit('/').pop() || 'index.html';
-
-  /*Initialize common features */
+  // Initialize common features
+  initHamburgerMenu();
   initLightbox();
   initSearch();
   loadDynamicContent();
-  initScrollAnimation();
-  initMobileMenu();
+  initScrollAnimations();
 
-  /*Page-specific features */
-  if(currentPage === 'service.html' || currentPage === 'service.html'){
+  // Page-specific features
+  if (currentPage === "service.html" || currentPage === "services.html") {
     initAccordion();
     initTabs();
   }
 
-  if (currentPage === 'enquiry.html'){
+  if (currentPage === "enquiry.html") {
     initEnquiryForm();
   }
 
-  if(currentPage === 'contact_us.html' || currentPage === 'contact.html'){
+  if (currentPage === "contact_us.html" || currentPage === "contact.html") {
     initContactForm();
   }
 
-  console.log('Mahogany Hair Salon - All features initialized successfully!');
-  
-};
+  console.log(" Mahogany Hair Salon - All features initialized successfully!");
+});
